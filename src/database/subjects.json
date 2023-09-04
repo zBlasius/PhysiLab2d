@@ -7,11 +7,13 @@
   "highschool-physics": {
     "key": "highschool-physics",
     "name": "Física - Ensino Médio",
-    "image": "physics.jpeg"
+    "image": "physics.jpeg",
+    "disabled": true
   },
   "college-physics": {
     "key": "college-physics",
     "name": "Física - Universidade",
-    "image": "physics.jpeg"
+    "image": "physics.jpeg",
+    "disabled": true
   }
 }

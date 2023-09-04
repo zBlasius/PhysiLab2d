@@ -6,8 +6,9 @@ import SubjectSelection from "../SubjectSelection/SubjectSelection";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<SubjectSelection />}>
-        <Route path="SubjectSelection" element={<SubjectSelection />} />
+      <Route path="/">
+        <Route index element={<SubjectSelection />} />
+        <Route path="elementary-physics" element={<h1>vapo</h1>} />
       </Route>
     </Routes>
   );

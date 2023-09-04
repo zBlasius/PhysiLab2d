@@ -2,15 +2,19 @@ import subjectsJSON from "../../database/subjects.json";
 
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+
 import SubjectCard from "./components/SubjectCard";
 
 const SubjectSelection = () => {
   const [selectedSubject, setSelectedSubject] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (selectedSubject) {
+      navigate("/" + selectedSubject.key);
     }
-  }, [selectedSubject]);
+  }, [selectedSubject, navigate]);
 
   return (
     <Container>

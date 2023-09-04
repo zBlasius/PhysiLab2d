@@ -15,7 +15,16 @@ const SubjectCard = ({ subject, onClick }) => {
           alignItems: "center",
         }}
       >
-        <Button variant="primary" onClick={onClick}>Abrir exercícios</Button>
+        <Button
+          variant={subject?.disabled ? "secondary" : "primary"}
+          onClick={() => {
+            if (!subject?.disabled) {
+              onClick(subject);
+            }
+          }}
+        >
+          Abrir exercícios
+        </Button>
       </Card.Footer>
     </Card>
   );
