@@ -1,12 +1,12 @@
 import "./App.css";
 import "./reset.css";
-import Comp from "../../components/Comp";
-import Teste from "../../components/Teste";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Simulation from "../Simulation/Simulation";
 
 function App() {
   return (
     <div className="App">
-      <Teste></Teste>
+      <Simulation></Simulation>
     </div>
   );
 }
