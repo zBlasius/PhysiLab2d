@@ -1,12 +1,16 @@
 {
   "elementary-physics": {
     "exercise01": {
-      "name": "Exercício 1"
+      "key": "exercise01",
+      "name": "Exercício 1",
+      "completed": true
     },
     "exercise02": {
+      "key": "exercise02",
       "name": "Exercício 2"
     },
     "exercise03": {
+      "key": "exercise03",
       "name": "Exercício 3"
     }
   }
