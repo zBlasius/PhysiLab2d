@@ -1,12 +1,11 @@
-import "./App.css";
 import "./reset.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Simulation from "../Simulation/Simulation";
+import SubjectSelection from "../SubjectSelection/SubjectSelection";
 
 function App() {
   return (
     <div className="App">
-      <Simulation></Simulation>
+      <SubjectSelection/>
     </div>
   );
 }

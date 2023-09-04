@@ -1,0 +1,17 @@
+{
+  "elementary-physics": {
+    "key": "elementary-physics",
+    "name": "Física - Ensino Fundamental",
+    "image": "physics.jpeg"
+  },
+  "highschool-physics": {
+    "key": "highschool-physics",
+    "name": "Física - Ensino Médio",
+    "image": "physics.jpeg"
+  },
+  "college-physics": {
+    "key": "college-physics",
+    "name": "Física - Universidade",
+    "image": "physics.jpeg"
+  }
+}
