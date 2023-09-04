@@ -1,12 +1,15 @@
 import "./reset.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Route, Routes } from "react-router-dom";
 import SubjectSelection from "../SubjectSelection/SubjectSelection";
 
 function App() {
   return (
-    <div className="App">
-      <SubjectSelection/>
-    </div>
+    <Routes>
+      <Route path="/" element={<SubjectSelection />}>
+        <Route path="SubjectSelection" element={<SubjectSelection />} />
+      </Route>
+    </Routes>
   );
 }
 

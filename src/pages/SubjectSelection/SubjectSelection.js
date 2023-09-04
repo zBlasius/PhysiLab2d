@@ -1,6 +1,7 @@
+import subjectsJSON from "../../database/subjects.json";
+
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import subjects from "../../database/subjects.json";
 import SubjectCard from "./components/SubjectCard";
 
 const SubjectSelection = () => {
@@ -22,7 +23,7 @@ const SubjectSelection = () => {
           gap: 24,
         }}
       >
-        {Object.values(subjects).map((subject) => (
+        {Object.values(subjectsJSON).map((subject) => (
           <SubjectCard
             key={subject.key}
             subject={subject}
