@@ -6,8 +6,8 @@ const RenderBox = ({speed}) => {
 
   // FIXME: Speed
   useEffect(() => {
-    const cw = document.body.clientWidth * 0.95;
-    const ch = document.body.clientHeight * 0.85;
+    const cw = scene.current.clientWidth;
+    const ch = scene.current.clientHeight;
 
     // create engine
     const engine = Engine.create({
@@ -85,7 +85,7 @@ const RenderBox = ({speed}) => {
     };
   }, []);
 
-  return <div ref={scene}></div>;
+  return <div style={{ height: "100%", width: "100%"}} ref={scene}></div>;
 };
 
 export default RenderBox;

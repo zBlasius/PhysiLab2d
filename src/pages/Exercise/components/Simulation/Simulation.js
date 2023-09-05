@@ -9,7 +9,12 @@ const Simulation = () => {
   function onClickRestart() {}
 
   return (
-    <div>
+    <div
+      style={{
+        height: "90%",
+        width: "100%",
+      }}
+    >
       <ControlBar
         isPlaying={isPlaying}
         setIsPlaying={setIsPlaying}
@@ -17,7 +22,7 @@ const Simulation = () => {
         setSpeed={setSpeed}
         onClickRestart={onClickRestart}
       />
-      <RenderBox />
+      <RenderBox isPlaying={{isPlaying}} speed={{speed}}/>
     </div>
   );
 };

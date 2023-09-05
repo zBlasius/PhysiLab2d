@@ -1,5 +1,4 @@
 import React from "react";
-import { Container } from "react-bootstrap";
 import Question from "./components/Question/Question";
 import Simulation from "./components/Simulation/Simulation";
 
@@ -10,15 +9,10 @@ const Exercise = ({ exercise }) => {
   }
 
   return (
-    <Container
-      style={{
-        height: "100 vh",
-        width: "100 vw",
-      }}
-    >
+    <div style={{ height: "700px", width: "100%" }}>
       <Question exercise={exercise} onSubmitAnswer={onSubmitAnswer} />
       <Simulation exercise={exercise} />
-    </Container>
+    </div>
   );
 };
 
