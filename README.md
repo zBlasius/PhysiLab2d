@@ -4,7 +4,7 @@ Este repositório contém o software **MathLearning**, em conjunto com suas docu
 O software foi desenvolvido como **trabalho de conclusão de curso (TCC)** do curso de **Engenharia de Software** do **Centro Universitário Católica de Santa Catarina, Campûs Jaraguá do Sul**.
 
 ## Artigo
-O [artigo](https://www.overleaf.com/read/khhvsthbhzpg) foi escrito e hospedado na plataforma overleaf. <br> 
+O [artigo](https://www.overleaf.com/read/khhvsthbhzpg) foi escrito e hospedado na plataforma Overleaf. <br> 
 O software, em conjunto com  o artigo e apresentação de slides, foram apresentadas a banca avaliadora no dia ....
  - - - -
 **Autores:** Gustavo Blasius e Joel Marcos Graf. <br>
