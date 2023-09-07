@@ -14,6 +14,9 @@ O artigo e software foram apresentadas a banca avaliadora no dia ....
 
 ## Documentação
 Documentos produzidos durante o projeto.
+### Links
 * [Artigo](https://www.overleaf.com/read/khhvsthbhzpg)
   * [Anotações do Artigo](https://docs.google.com/document/d/1sumGe37jRPCV64vbBFA1mbVIQoFD4BSlK9QBvWubvqU)
 * [Wireframes](https://www.figma.com/file/Ok7kUrF53b6heZodKYGFnQ)
+### Diagrama UML
+![Diagrama UML](https://github.com/zBlasius/math_learning/assets/55204995/ce6abb6f-26c2-4670-bcae-f9dbaac4f850)
