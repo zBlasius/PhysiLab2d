@@ -27,7 +27,6 @@ Para versionamento do projeto foi utilizado o git, com este [repositório](https
 Documentos produzidos durante o projeto.
 ### Links
 [Anotações do artigo](https://docs.google.com/document/d/1sumGe37jRPCV64vbBFA1mbVIQoFD4BSlK9QBvWubvqU) - Google Documents. <br>
-[Wireframes](https://www.figma.com/file/Ok7kUrF53b6heZodKYGFnQ) - Figma. <br>
 [Apresentação de qualificação do projeto](https://www.canva.com/design/DAFtfrO_XN0/KXTt9sT9QpFwzOCKuPE5yA/view?utm_content=DAFtfrO_XN0&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink) - Canva. <br>
 ### Diagrama UML - [Miro](https://miro.com/app)
 ![Diagrama UML](https://github.com/zBlasius/math_learning/assets/55204995/ce6abb6f-26c2-4670-bcae-f9dbaac4f850)
