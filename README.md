@@ -30,7 +30,7 @@ Documentos produzidos durante o projeto.
 [Wireframes](https://www.figma.com/file/Ok7kUrF53b6heZodKYGFnQ) - Figma. <br>
 [Apresentação de qualificação do projeto](https://www.canva.com/design/DAFtfrO_XN0/KXTt9sT9QpFwzOCKuPE5yA/view?utm_content=DAFtfrO_XN0&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink) - Canva. <br>
 ### Diagrama UML - [Miro](https://miro.com/app)
-![Diagrama UML](https://github.com/zBlasius/math_learning/assets/55204995/ce6abb6f-26c2-4670-bcae-f9dbaac4f850).
+![Diagrama UML](https://github.com/zBlasius/math_learning/assets/55204995/ce6abb6f-26c2-4670-bcae-f9dbaac4f850)
 ### Wireframes - [Figma](https://www.figma.com)
-![Visão do professor](https://github.com/zBlasius/math_learning/assets/55204995/f425f90d-fb33-4539-b561-9bfee3e3dd68).
-![Visão do aluno](https://github.com/zBlasius/math_learning/assets/55204995/2b3ea558-bf1e-48d9-96dd-9a9d40ff8b0b).
+![Visão do professor](https://github.com/zBlasius/math_learning/assets/55204995/f425f90d-fb33-4539-b561-9bfee3e3dd68)
+![Visão do aluno](https://github.com/zBlasius/math_learning/assets/55204995/2b3ea558-bf1e-48d9-96dd-9a9d40ff8b0b)
