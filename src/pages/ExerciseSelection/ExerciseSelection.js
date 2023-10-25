@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import ExerciseCard from "./components/ExerciseCard";
 import { useNavigate } from "react-router";
+import BackButton from "../../components/BackButton";
 
 const ExerciseSelection = ({ subject }) => {
   const navigate = useNavigate();
@@ -23,6 +24,8 @@ const ExerciseSelection = ({ subject }) => {
         gap: 24,
       }}
     >
+      <BackButton/>
+      
       <h1>{subject?.name ?? ""} __ Exercícios</h1>
 
       {exercises?.map((exercise) => (
