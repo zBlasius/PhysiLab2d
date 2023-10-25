@@ -1,12 +1,19 @@
 import React, { useState } from "react";
-import { Button, Container, Form } from "react-bootstrap";
+import { Button, Container, Form, Modal } from "react-bootstrap";
 
 const Question = ({ exercise, onSubmitAnswer }) => {
   const [selectedOption, setSelectedOption] = useState("");
+  const [showModal, setShowModal] = useState(false);
 
-  const handleOptionChange = (e) => {
+  function handleOptionChange(e) {
     setSelectedOption(e.target.value);
-  };
+  }
+
+  function handleCloseModal() {
+    setShowModal(false);
+    onSubmitAnswer(selectedOption);
+    setSelectedOption("");
+  }
 
   return (
     <Container style={{ border: "1px solid black" }}>
@@ -43,11 +50,31 @@ const Question = ({ exercise, onSubmitAnswer }) => {
       >
         <Button
           variant={selectedOption ? "primary" : "secondary"}
-          onClick={() => onSubmitAnswer(selectedOption)}
+          onClick={() => setShowModal(true)}
         >
           Enviar Resposta
         </Button>
       </div>
+
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            {exercise.answer == selectedOption
+              ? "Resposta Correta"
+              : "Resposta Incorreta"}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {exercise.answer == selectedOption
+            ? "Parabéns! Você acertou."
+            : "Que pena! Tente outra vez."}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleCloseModal}>
+            Concluir
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </Container>
   );
 };

@@ -1,11 +1,17 @@
 import React from "react";
 import Question from "./components/Question/Question";
 import Simulation from "./components/Simulation/Simulation";
+import { useNavigate } from "react-router";
 
 const Exercise = ({ exercise }) => {
-  // TODO:
+  const navigate = useNavigate();
+
   function onSubmitAnswer(submitedAnswer) {
-    console.log("submitedAnswer: ", submitedAnswer);
+    if (submitedAnswer == exercise.answer) {
+      // TODO: Completar exercicio
+      console.log("submitedAnswer: ", submitedAnswer);
+      navigate("/elementary-physics");
+    }
   }
 
   return (
