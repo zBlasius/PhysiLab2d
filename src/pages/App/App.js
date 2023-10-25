@@ -8,6 +8,7 @@ import SubjectSelection from "../SubjectSelection/SubjectSelection";
 import ExerciseSelection from "../ExerciseSelection/ExerciseSelection";
 import Exercise from "../Exercise/Exercise";
 import { Container } from "react-bootstrap";
+import Login from "../Login/Login";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Routes>
         <Route index element={<SubjectSelection />} />
 
+        <Route path="login" element={<Login />} />
         <Route
           path="elementary-physics"
           element={
