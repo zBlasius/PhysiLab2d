@@ -1,0 +1,26 @@
+{
+  "elementary-physics": {
+    "exercise01": {
+      "key": "exercise01",
+      "name": "Exercício 1",
+      "question": "Qual a pergunta?",
+      "options": ["1", "2", "3", "4"],
+      "answer": "2",
+      "completed": true
+    },
+    "exercise02": {
+      "key": "exercise02",
+      "name": "Exercício 2",
+      "question": "Qual a pergunta?",
+      "options": ["1", "2", "3", "4"],
+      "answer": "2"
+    },
+    "exercise03": {
+      "key": "exercise03",
+      "name": "Exercício 3",
+      "question": "Qual a pergunta?",
+      "options": ["1", "2", "3", "4"],
+      "answer": "2"
+    }
+  }
+}
