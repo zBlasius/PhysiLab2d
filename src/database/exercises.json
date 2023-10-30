@@ -27,7 +27,7 @@
     },
     "exercise03": {
       "key": "exercise03",
-      "name": "Exercício 3",
+      "name": "Corrida de Carros: Massa e Aceleração",
       "question": "Dois carros, A e B, estão competindo em uma corrida de arrancada em uma pista retilínea. No início, ambos os carros estão parados, e a corrida começa quando eles aceleram. O carro A tem uma massa maior que o carro B. Se ambos os carros aplicam a mesma força para acelerar, qual carro atingirá a velocidade máxima primeiro?",
       "options": [
         "Carro A.", 
