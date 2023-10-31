@@ -9,6 +9,7 @@ import ExerciseSelection from "../ExerciseSelection/ExerciseSelection";
 import Exercise from "../Exercise/Exercise";
 import { Container } from "react-bootstrap";
 import Login from "../Login/Login";
+import SingIn from "../SingIn/SingIn";
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         height: "100vh",
         width: "100vw",
         padding: 36,
+        display:'flex',
+
       }}
     >
       <Routes>
@@ -51,6 +54,12 @@ function App() {
             <Exercise
               exercise={exercisesJSON["elementary-physics"]["exercise03"]}
             />
+          }
+        />
+        <Route
+          path="singIn"
+          element={
+            <SingIn/>
           }
         />
       </Routes>
