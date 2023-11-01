@@ -7,6 +7,7 @@ import { Route, Routes } from "react-router-dom";
 import SubjectSelection from "../SubjectSelection/SubjectSelection";
 import ExerciseSelection from "../ExerciseSelection/ExerciseSelection";
 import Exercise from "../Exercise/Exercise";
+import Exercise1 from "../Exercise/Exercises/Exercise1";
 import { Container } from "react-bootstrap";
 import Login from "../Login/Login";
 
@@ -21,6 +22,8 @@ function App() {
     >
       <Routes>
         <Route index element={<SubjectSelection />} />
+
+        <Route path="joel" element={<Exercise1 />} />
 
         <Route path="login" element={<Login />} />
         <Route
