@@ -71,7 +71,7 @@ const SignInForm = () => {
         <Button className="btn btn-primary w-100 py-2" type="submit" onClick={()=> singIn()}>
           Sign in
         </Button>
-        <p className="mt-5 mb-3 text-body-secondary">&copy; 2017–2023</p>
+        <p className="mt-5 mb-3 text-body-secondary">Math learning</p>
       </Form>
     </div>
   );
