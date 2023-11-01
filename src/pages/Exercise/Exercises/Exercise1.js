@@ -247,18 +247,68 @@ const Exercise1 = ({ speed }) => {
       length: 0,
     });
 
-    Composite.addBody(car, body);
+    const auxilL = Constraint.create({
+      bodyB: carBody,
+      pointB: { x: -carBodyWidth / 2, y: 0 },
+      bodyA: body,
+      pointA: { x: -width / 2, y: 0 },
+      stiffness: 1,
+      length: width / 3 - 5,
+    });
+
+    const auxilC = Constraint.create({
+      bodyB: carBody,
+      pointB: { x: 0, y: 0 },
+      bodyA: body,
+      pointA: { x: 0, y: 0 },
+      stiffness: 1,
+      length: width / 3 - 10,
+    });
+
+    const auxilR = Constraint.create({
+      bodyB: carBody,
+      pointB: { x: carBodyWidth / 2, y: 0 },
+      bodyA: body,
+      pointA: { x: width / 2, y: 0 },
+      stiffness: 1,
+      length: width / 3 - 5,
+    });
+
+    const auxilLC = Constraint.create({
+      bodyB: carBody,
+      pointB: { x: -carBodyWidth / 2, y: 0 },
+      bodyA: body,
+      pointA: { x: -10, y: 0 },
+      stiffness: 1,
+      length: carBodyWidth * 0.5,
+    });
+
+    const auxilRC = Constraint.create({
+      bodyB: carBody,
+      pointB: { x: carBodyWidth / 2, y: 0 },
+      bodyA: body,
+      pointA: { x: 10, y: 0 },
+      stiffness: 1,
+      length: carBodyWidth * 0.5,
+    });
+
     Composite.addBody(car, wheelA);
     Composite.addBody(car, wheelB);
     Composite.addBody(car, carBody);
     Composite.addBody(car, rectangleOnLeft);
     Composite.addBody(car, rectangleOnRight);
+    Composite.addBody(car, body);
     Composite.addConstraint(car, axelA);
     Composite.addConstraint(car, axelB);
     Composite.addConstraint(car, axelLC);
     Composite.addConstraint(car, axelRC);
     Composite.addConstraint(car, axelLCT);
     Composite.addConstraint(car, axelRCT);
+    Composite.addConstraint(car, auxilR);
+    Composite.addConstraint(car, auxilL);
+    Composite.addConstraint(car, auxilC);
+    Composite.addConstraint(car, auxilLC);
+    Composite.addConstraint(car, auxilRC);
 
     return car;
   }
