@@ -31,11 +31,13 @@ const Exercise1 = ({ speed }) => {
     Runner.run(runner, engine);
     // ---- PRE CODE ----
 
-    const ground = Bodies.rectangle(cw/2, ch*0.9, cw, 30, {
+    const ground = Bodies.rectangle(cw / 2, ch * 0.9, cw, 30, {
       isStatic: true,
     });
 
-    World.add(engine.world, [ground]);
+    const car = Bodies.rectangle(cw / 6, ch * 0.9 - 40, 120, 80);
+
+    World.add(engine.world, [ground, car]);
 
     // Cleanup
     return () => {
