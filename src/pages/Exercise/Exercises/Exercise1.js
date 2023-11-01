@@ -46,18 +46,18 @@ const Exercise1 = ({ speed }) => {
       isStatic: true,
     });
 
-    const scale = 1;
+    const scale = 0.8;
     const car = createCar(
       cw / 6,
       ch * 0.9 - 40,
-      150 * scale,
+      200 * scale,
       30 * scale,
       30 * scale
     );
     const car2 = createCar(
       cw * 0.6,
       ch * 0.9 - 40,
-      150 * scale,
+      200 * scale,
       30 * scale,
       30 * scale
     );
@@ -181,13 +181,14 @@ const Exercise1 = ({ speed }) => {
           group: group,
         },
         density: 0.0002,
-      });
+      }
+    );
 
     // Retângulo em cima do carro no sentido retrato
-    const rectangleOnTop = Bodies.rectangle(
+    const rectangleOnLeft = Bodies.rectangle(
       xx,
       yy - (carBodyHeight + height) / 2 - wheelSize / 2 - 5, // Ajustar a posição em cima do carro
-      (height * 2) / 3, // Altura de 2/3 de uma roda
+      (height * 2) / 4, // Altura de 2/3 de uma roda
       width / 3, // Largura de 1/3 do tamanho do carro
       {
         collisionFilter: {
@@ -197,10 +198,51 @@ const Exercise1 = ({ speed }) => {
       }
     );
 
-    const axelCentral = Constraint.create({
-      bodyB: rectangleOnTop,
-      pointB: { x: 0, y: 0 },
+    const rectangleOnRight = Bodies.rectangle(
+      xx,
+      yy - (carBodyHeight + height) / 2 - wheelSize / 2 - 5, // Ajustar a posição em cima do carro
+      (height * 2) / 4, // Altura de 2/3 de uma roda
+      width / 3, // Largura de 1/3 do tamanho do carro
+      {
+        collisionFilter: {
+          group: group,
+        },
+        density: 0.0002,
+      }
+    );
+
+    const axelLC = Constraint.create({
+      bodyB: rectangleOnLeft,
+      pointB: { x: 0, y: (height * 2) / 2 },
       bodyA: body,
+      pointA: { x: -25, y: 0 },
+      stiffness: 1,
+      length: 0,
+    });
+
+    const axelRC = Constraint.create({
+      bodyB: rectangleOnRight,
+      pointB: { x: 0, y: (height * 2) / 2 },
+      bodyA: body,
+      pointA: { x: 25, y: 0 },
+      stiffness: 1,
+      length: 0,
+    });
+
+    const axelLCT = Constraint.create({
+      bodyB: carBody,
+      pointB: { x: -10, y: 0 },
+      bodyA: rectangleOnLeft,
+      pointA: { x: 0, y: -(height * 2) / 2 },
+      stiffness: 1,
+      length: 0,
+    });
+
+    const axelRCT = Constraint.create({
+      bodyB: carBody,
+      pointB: { x: 10, y: 0 },
+      bodyA: rectangleOnRight,
+      pointA: { x: 0, y: -(height * 2) / 2 },
       stiffness: 1,
       length: 0,
     });
@@ -208,11 +250,15 @@ const Exercise1 = ({ speed }) => {
     Composite.addBody(car, body);
     Composite.addBody(car, wheelA);
     Composite.addBody(car, wheelB);
-    // Composite.addBody(car, carBody);
-    Composite.addBody(car, rectangleOnTop);
+    Composite.addBody(car, carBody);
+    Composite.addBody(car, rectangleOnLeft);
+    Composite.addBody(car, rectangleOnRight);
     Composite.addConstraint(car, axelA);
     Composite.addConstraint(car, axelB);
-    Composite.addConstraint(car, axelCentral);
+    Composite.addConstraint(car, axelLC);
+    Composite.addConstraint(car, axelRC);
+    Composite.addConstraint(car, axelLCT);
+    Composite.addConstraint(car, axelRCT);
 
     return car;
   }
