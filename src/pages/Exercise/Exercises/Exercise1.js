@@ -44,6 +44,7 @@ const Exercise1 = ({ speed }) => {
 
     const ground = Bodies.rectangle(cw / 2, ch * 0.9, cw, 30, {
       isStatic: true,
+      friction: 1.0, // Aumentando a fricção do chão
     });
 
     const scale = 0.8;
@@ -52,14 +53,16 @@ const Exercise1 = ({ speed }) => {
       ch * 0.9 - 40,
       200 * scale,
       30 * scale,
-      30 * scale
+      30 * scale,
+      0.001 // Aumentando a densidade do carro
     );
     const car2 = createCar(
       cw * 0.6,
       ch * 0.9 - 40,
       200 * scale,
       30 * scale,
-      30 * scale
+      30 * scale,
+      0.001
     );
 
     const mouse = Mouse.create(render.canvas),
@@ -78,25 +81,26 @@ const Exercise1 = ({ speed }) => {
 
     World.add(engine.world, [mouseConstraint, ground, car, car2]);
 
-    // // Aplicar uma força horizontal constante às rodas do carro
-    // const horizontalForce = 0.005; // Ajuste a força conforme necessário
+    // Aplicar uma força horizontal constante às rodas do carro
+    const horizontalForce = 0.001; // Ajuste a força conforme necessário
 
-    // // Configure uma função para aplicar a força continuamente
-    // const applyHorizontalForce = () => {
-    //   car.bodies.forEach((body) => {
-    //     if (body.label === "Circle Body") {
-    //       // Certifique-se de aplicar a força nas rodas do carro
-    //       Body.applyForce(body, body.position, {
-    //         x: horizontalForce,
-    //         y: 0,
-    //       });
-    //     }
-    //   });
-    //   //   requestAnimationFrame(applyHorizontalForce);
-    // };
+    // Configure uma função para aplicar a força continuamente
+    const applyHorizontalForce = () => {
+      car.bodies.forEach((body) => {
+        if (body.label === "Circle Body") {
+          // Certifique-se de aplicar a força nas rodas do carro
+          Body.applyForce(body, body.position, {
+            x: horizontalForce,
+            y: 0,
+          });
+        }
+      });
+
+      requestAnimationFrame(applyHorizontalForce);
+    };
 
     // Inicie o loop para aplicar a força
-    // applyHorizontalForce();
+    applyHorizontalForce();
 
     // Cleanup
     return () => {
@@ -111,7 +115,7 @@ const Exercise1 = ({ speed }) => {
     };
   }, []);
 
-  function createCar(xx, yy, width, height, wheelSize) {
+  function createCar(xx, yy, width, height, wheelSize, density) {
     const group = Body.nextGroup(true),
       wheelBase = 20,
       wheelAOffset = -width * 0.5 + wheelBase,
@@ -126,7 +130,7 @@ const Exercise1 = ({ speed }) => {
         chamfer: {
           radius: height * 0.5,
         },
-        density: 0.0002,
+        density: density, // Aumentando a densidade do carro
       });
 
     const wheelA = Bodies.circle(
@@ -157,7 +161,7 @@ const Exercise1 = ({ speed }) => {
       bodyB: body,
       pointB: { x: wheelAOffset, y: wheelYOffset },
       bodyA: wheelA,
-      stiffness: 1,
+      stiffness: 0.5, // Reduzindo a rigidez da mola
       length: 0,
     });
 
@@ -165,7 +169,7 @@ const Exercise1 = ({ speed }) => {
       bodyB: body,
       pointB: { x: wheelBOffset, y: wheelYOffset },
       bodyA: wheelB,
-      stiffness: 1,
+      stiffness: 0.5,
       length: 0,
     });
 
@@ -173,41 +177,40 @@ const Exercise1 = ({ speed }) => {
     const carBodyHeight = height * 1.3;
     const carBody = Bodies.rectangle(
       xx,
-      yy - wheelSize / 2 - 15, // Aumentar a distância para afastar o carBody
+      yy - wheelSize / 2 - 15,
       carBodyWidth,
       carBodyHeight,
       {
         collisionFilter: {
           group: group,
         },
-        density: 0.0002,
+        density: density, // Aumentando a densidade do carro
       }
     );
 
-    // Retângulo em cima do carro no sentido retrato
     const rectangleOnLeft = Bodies.rectangle(
       xx,
-      yy - (carBodyHeight + height) / 2 - wheelSize / 2 - 5, // Ajustar a posição em cima do carro
-      (height * 2) / 4, // Altura de 2/3 de uma roda
-      width / 3, // Largura de 1/3 do tamanho do carro
+      yy - (carBodyHeight + height) / 2 - wheelSize / 2 - 5,
+      (height * 2) / 4,
+      width / 3,
       {
         collisionFilter: {
           group: group,
         },
-        density: 0.0002,
+        density: density, // Aumentando a densidade do retângulo
       }
     );
 
     const rectangleOnRight = Bodies.rectangle(
       xx,
-      yy - (carBodyHeight + height) / 2 - wheelSize / 2 - 5, // Ajustar a posição em cima do carro
-      (height * 2) / 4, // Altura de 2/3 de uma roda
-      width / 3, // Largura de 1/3 do tamanho do carro
+      yy - (carBodyHeight + height) / 2 - wheelSize / 2 - 5,
+      (height * 2) / 4,
+      width / 3,
       {
         collisionFilter: {
           group: group,
         },
-        density: 0.0002,
+        density: density,
       }
     );
 
@@ -216,7 +219,7 @@ const Exercise1 = ({ speed }) => {
       pointB: { x: 0, y: (height * 2) / 2 },
       bodyA: body,
       pointA: { x: -25, y: 0 },
-      stiffness: 1,
+      stiffness: 0.5, // Reduzindo a rigidez da mola
       length: 0,
     });
 
@@ -225,7 +228,7 @@ const Exercise1 = ({ speed }) => {
       pointB: { x: 0, y: (height * 2) / 2 },
       bodyA: body,
       pointA: { x: 25, y: 0 },
-      stiffness: 1,
+      stiffness: 0.5, // Reduzindo a rigidez da mola
       length: 0,
     });
 
@@ -234,7 +237,7 @@ const Exercise1 = ({ speed }) => {
       pointB: { x: -10, y: 0 },
       bodyA: rectangleOnLeft,
       pointA: { x: 0, y: -(height * 2) / 2 },
-      stiffness: 1,
+      stiffness: 0.5, // Reduzindo a rigidez da mola
       length: 0,
     });
 
@@ -243,7 +246,7 @@ const Exercise1 = ({ speed }) => {
       pointB: { x: 10, y: 0 },
       bodyA: rectangleOnRight,
       pointA: { x: 0, y: -(height * 2) / 2 },
-      stiffness: 1,
+      stiffness: 0.5, // Reduzindo a rigidez da mola
       length: 0,
     });
 
@@ -252,7 +255,7 @@ const Exercise1 = ({ speed }) => {
       pointB: { x: -carBodyWidth / 2, y: 0 },
       bodyA: body,
       pointA: { x: -width / 2, y: 0 },
-      stiffness: 1,
+      stiffness: 0.5, // Reduzindo a rigidez da mola
       length: width / 3 - 5,
     });
 
@@ -261,7 +264,7 @@ const Exercise1 = ({ speed }) => {
       pointB: { x: 0, y: 0 },
       bodyA: body,
       pointA: { x: 0, y: 0 },
-      stiffness: 1,
+      stiffness: 0.5, // Reduzindo a rigidez da mola
       length: width / 3 - 10,
     });
 
@@ -270,7 +273,7 @@ const Exercise1 = ({ speed }) => {
       pointB: { x: carBodyWidth / 2, y: 0 },
       bodyA: body,
       pointA: { x: width / 2, y: 0 },
-      stiffness: 1,
+      stiffness: 0.5, // Reduzindo a rigidez da mola
       length: width / 3 - 5,
     });
 
@@ -279,7 +282,7 @@ const Exercise1 = ({ speed }) => {
       pointB: { x: -carBodyWidth / 2, y: 0 },
       bodyA: body,
       pointA: { x: -10, y: 0 },
-      stiffness: 1,
+      stiffness: 0.5, // Reduzindo a rigidez da mola
       length: carBodyWidth * 0.5,
     });
 
@@ -288,7 +291,7 @@ const Exercise1 = ({ speed }) => {
       pointB: { x: carBodyWidth / 2, y: 0 },
       bodyA: body,
       pointA: { x: 10, y: 0 },
-      stiffness: 1,
+      stiffness: 0.5, // Reduzindo a rigidez da mola
       length: carBodyWidth * 0.5,
     });
 
