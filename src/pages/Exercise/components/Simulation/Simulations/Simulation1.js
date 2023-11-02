@@ -18,8 +18,6 @@ const Simulation1 = ({ speed }) => {
   const engineRef = useRef(Engine.create());
   const collideRef = useRef(false);
 
-  console.log("speed: ", speed);
-
   useEffect(() => {
     const cw = scene.current.clientWidth;
     const ch = scene.current.clientHeight;
