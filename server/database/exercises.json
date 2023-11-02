@@ -11,7 +11,8 @@
         "Veículo A continuou a se mover na direção oposta a Veículo B."
       ],
       "answer": "Veículo A parou imediatamente, e Veículo B foi empurrado na direção oposta.",
-      "completed": true
+      "completed": true,
+      "groupKey": "elementary-physics"
     },
     "exercise02": {
       "key": "exercise02",
@@ -23,7 +24,8 @@
         "O período de oscilação do pêndulo é maior quando a massa da extremidade da corda é maior.", 
         "O período de oscilação do pêndulo é maior quando a amplitude dos movimentos é maior."
       ],
-      "answer": "O período de oscilação do pêndulo não depende do comprimento da corda."
+      "answer": "O período de oscilação do pêndulo não depende do comprimento da corda.",
+      "groupKey": "elementary-physics"
     },
     "exercise03": {
       "key": "exercise03",
@@ -35,7 +37,8 @@
         "Ambos atingirão a velocidade máxima ao mesmo tempo.", 
         "Depende do tamanho dos carros."
       ],
-      "answer": "Carro B."
+      "answer": "Carro B.",
+      "groupKey": "elementary-physics"
     }
   }
 }

@@ -25,6 +25,14 @@ router.get('/get_all_subjects', (req,res)=>{
   }
 })
 
+router.post("/update", (req,res)=>{
+  try {
+    return res.json({});
+  } catch (error) {
+    return res.status(400).json({error: error, message: ""})
+  }
+})
+
 
 router.listen(8000, () => {
   console.log('Server started on port 8000');

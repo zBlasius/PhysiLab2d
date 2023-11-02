@@ -8,7 +8,6 @@ import {Context} from "../../store/Context"
 const ExerciseSelection = ({ subject }) => {
   const navigate = useNavigate();
   const context = useContext(Context)
-  
   const {state, setState} = context;
   const [exercises, setExercises] = useState(null);
 
