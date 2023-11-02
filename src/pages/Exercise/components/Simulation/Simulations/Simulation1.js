@@ -13,7 +13,7 @@ import {
   Events,
 } from "matter-js";
 
-const Exercise1 = ({ speed }) => {
+const Simulation1 = ({ speed }) => {
   const scene = useRef(null);
   const collideRef = useRef(false);
 
@@ -337,4 +337,4 @@ const Exercise1 = ({ speed }) => {
   return <div style={{ height: "100%", width: "100%" }} ref={scene}></div>;
 };
 
-export default Exercise1;
+export default Simulation1;

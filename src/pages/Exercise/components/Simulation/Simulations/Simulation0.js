@@ -1,7 +1,7 @@
-import React, { useEffect, useRef } from 'react';
-import { Engine, Render, World, Bodies, Runner, Events } from 'matter-js';
+import React, { useEffect, useRef } from "react";
+import { Engine, Render, World, Bodies, Runner, Events } from "matter-js";
 
-const RenderBox = ({speed}) => {
+const RenderBox = ({ speed }) => {
   const scene = useRef(null);
 
   // FIXME: Speed
@@ -52,24 +52,54 @@ const RenderBox = ({speed}) => {
 
     const squareWalls = [
       // Top wall
-      Bodies.rectangle(cw / 2, halfWallThickness, cw, 2 * halfWallThickness, wallOptions),
+      Bodies.rectangle(
+        cw / 2,
+        halfWallThickness,
+        cw,
+        2 * halfWallThickness,
+        wallOptions
+      ),
       // Left wall
-      Bodies.rectangle(halfWallThickness, ch / 2, 2 * halfWallThickness, ch, wallOptions),
+      Bodies.rectangle(
+        halfWallThickness,
+        ch / 2,
+        2 * halfWallThickness,
+        ch,
+        wallOptions
+      ),
       // Bottom wall
-      Bodies.rectangle(cw / 2, ch - halfWallThickness, cw, 2 * halfWallThickness, wallOptions),
+      Bodies.rectangle(
+        cw / 2,
+        ch - halfWallThickness,
+        cw,
+        2 * halfWallThickness,
+        wallOptions
+      ),
       // Right wall
-      Bodies.rectangle(cw - halfWallThickness, ch / 2, 2 * halfWallThickness, ch, wallOptions),
+      Bodies.rectangle(
+        cw - halfWallThickness,
+        ch / 2,
+        2 * halfWallThickness,
+        ch,
+        wallOptions
+      ),
     ];
 
     // Create the floor
-    const floor = Bodies.rectangle(cw / 2, ch - halfWallThickness, cw, 2 * halfWallThickness, {
-      isStatic: true,
-      render: {
-        strokeStyle: "#000",
-        fillStyle: "transparent",
-        lineWidth: 1,
-      },
-    });
+    const floor = Bodies.rectangle(
+      cw / 2,
+      ch - halfWallThickness,
+      cw,
+      2 * halfWallThickness,
+      {
+        isStatic: true,
+        render: {
+          strokeStyle: "#000",
+          fillStyle: "transparent",
+          lineWidth: 1,
+        },
+      }
+    );
 
     // Add square, walls, and floor to the world
     World.add(world, [...squareWalls, floor]);
@@ -85,7 +115,7 @@ const RenderBox = ({speed}) => {
     };
   }, []);
 
-  return <div style={{ height: "100%", width: "100%"}} ref={scene}></div>;
+  return <div style={{ height: "100%", width: "100%" }} ref={scene}></div>;
 };
 
 export default RenderBox;

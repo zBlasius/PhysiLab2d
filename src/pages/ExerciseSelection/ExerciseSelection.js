@@ -24,8 +24,8 @@ const ExerciseSelection = ({ subject }) => {
         gap: 24,
       }}
     >
-      <BackButton/>
-      
+      <BackButton />
+
       <h1>{subject?.name ?? ""} __ Exercícios</h1>
 
       {exercises?.map((exercise) => (
