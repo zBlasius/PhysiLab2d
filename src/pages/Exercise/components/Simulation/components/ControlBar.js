@@ -7,25 +7,19 @@ import {
   Container,
 } from "react-bootstrap";
 
-const ControlBar = ({
-  isPlaying,
-  setIsPlaying,
-  speed,
-  setSpeed,
-  onClickRestart,
-}) => {
+const ControlBar = ({ speed, setSpeed, onClickRestart }) => {
   return (
     <Container>
       <ButtonGroup>
-        <Button variant="secondary" onClick={() => setIsPlaying((val) => !val)}>
-          {isPlaying ? "Pause" : "Play"}
-        </Button>
         <ToggleButtonGroup
           type="radio"
           name="speed-options"
           value={speed}
           onChange={(val) => setSpeed(val)}
         >
+          <ToggleButton id="speed-options-0.0" variant="secondary" value={0.0}>
+            Pausar
+          </ToggleButton>
           <ToggleButton id="speed-options-0.5" variant="secondary" value={0.5}>
             0.5x
           </ToggleButton>

@@ -4,16 +4,15 @@ import Simulation0 from "./Simulations/Simulation0";
 import Simulation1 from "./Simulations/Simulation1";
 
 const Simulation = ({ exercise }) => {
-  const [isPlaying, setIsPlaying] = useState(true);
   const [speed, setSpeed] = useState(1.0);
 
-  function getExercise(exercise, isPlaying, speed) {
+  function getExercise(exercise, speed) {
     if (exercise.key == "exercise01") {
-      return <Simulation1 isPlaying={isPlaying} speed={speed} />;
+      return <Simulation1 speed={speed} />;
     } else if (exercise.key == "exercise02") {
-      return <Simulation0 isPlaying={isPlaying} speed={speed} />;
+      return <Simulation0 speed={speed} />;
     } else {
-      return <Simulation0 isPlaying={isPlaying} speed={speed} />;
+      return <Simulation0 speed={speed} />;
     }
   }
 
@@ -27,14 +26,12 @@ const Simulation = ({ exercise }) => {
       }}
     >
       <ControlBar
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
         speed={speed}
         setSpeed={setSpeed}
         onClickRestart={onClickRestart}
       />
 
-      {getExercise(exercise, isPlaying, speed)}
+      {getExercise(exercise, speed)}
     </div>
   );
 };
