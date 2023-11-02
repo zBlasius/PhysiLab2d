@@ -9,7 +9,7 @@ const Exercise = ({ exercise }) => {
   function onSubmitAnswer(submitedAnswer) {
     if (submitedAnswer == exercise.answer) {
       // TODO: Completar exercicio
-      console.log("submitedAnswer: ", submitedAnswer);
+
       navigate("/elementary-physics");
     }
   }

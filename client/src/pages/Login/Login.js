@@ -10,8 +10,6 @@ const SignInForm = () => {
   const [password, setPassword] = useState('');
   const context = useContext(Context);
   const {state, setState} = context
-  console.log('state 01', state);
-
   const navigate = useNavigate();
 
   const singIn = () => {

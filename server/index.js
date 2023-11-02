@@ -1,18 +1,27 @@
 import express from 'express';
 import cors from 'cors';
 const router = express();
-
 router.use(express.json());
 router.use(cors());
-// * TODO - Fazer middleware para pegar o usuário corretamente
+import fs from "fs";
 
-router.get('/teste', (req,res)=>{
+
+router.get('/get_all_info', (req,res)=>{
   try {
-    console.log('entrou aqui')
-    return res.json({ok:true});
+    const exerciseData = JSON.parse(fs.readFileSync("./database/exercises.json"))
+    const subjectsData = JSON.parse(fs.readFileSync("./database/subjects.json"))
+    return res.json({exerciseData, subjectsData});
   } catch (error) {
-    console.log('deu ruuim aqui', error)
-    return res.status(400).json({error: true, message: ""})
+    return res.status(400).json({error: error, message: ""})
+  }
+})
+
+router.get('/get_all_subjects', (req,res)=>{
+  try {
+    
+    return res.json(exerciseData);
+  } catch (error) {
+    return res.status(400).json({error: error, message: ""})
   }
 })
 

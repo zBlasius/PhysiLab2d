@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import "./reset.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
 import SubjectSelection from "../SubjectSelection/SubjectSelection";
 import ExerciseSelection from "../ExerciseSelection/ExerciseSelection";
@@ -10,19 +8,20 @@ import Login from "../Login/Login";
 import SingIn from "../SingIn/SingIn";
 import { Context } from "../../store/Context";
 import appCtxDefaultValue from "../../store/Type";
-import subjectsJSON from "../../database/subjects.json";
-import exercisesJSON from "../../database/exercises.json";
 import api from "../../api/api";
 
+import "./reset.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+
 function App() {
-  const [state, setState] = useState(appCtxDefaultValue)
+  const [state, setState] = useState(appCtxDefaultValue.state)
 
   useEffect(()=>{
-    api.get("teste", {params: {teste:true}})
+    api.get("get_all_info", {params: {teste:true}})
       .then(ret=>{
-        
+        setState({...ret.data})
       })
-  })
+  }, [])
   
   return (
     <Context.Provider value={{state, setState}}>
@@ -42,14 +41,14 @@ function App() {
           <Route
             path="elementary-physics"
             element={
-              <ExerciseSelection subject={subjectsJSON["elementary-physics"]} />
+              <ExerciseSelection subject={state.subjectsData["elementary-physics"]} />
             }
           />
           <Route
             path="elementary-physics/exercise01"
             element={
               <Exercise
-                exercise={exercisesJSON["elementary-physics"]["exercise01"]}
+                exercise={state.exerciseData["elementary-physics"]["exercise01"]}
               />
             }
           />
@@ -57,7 +56,7 @@ function App() {
             path="elementary-physics/exercise02"
             element={
               <Exercise
-                exercise={exercisesJSON["elementary-physics"]["exercise02"]}
+                exercise={state.exerciseData["elementary-physics"]["exercise02"]}
               />
             }
           />
@@ -65,7 +64,7 @@ function App() {
             path="elementary-physics/exercise03"
             element={
               <Exercise
-                exercise={exercisesJSON["elementary-physics"]["exercise03"]}
+                exercise={state.exerciseData["elementary-physics"]["exercise03"]}
               />
             }
           />
