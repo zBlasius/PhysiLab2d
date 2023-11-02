@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import ControlBar from "./components/ControlBar";
-import RenderBox from "./components/RenderBox";
+import Simulation0 from "./Simulations/Simulation0";
+import Simulation1 from "./Simulations/Simulation1";
 
-const Simulation = () => {
-  const [isPlaying, setIsPlaying] = useState(true);
-  const [speed, setSpeed] = useState(1.0);
+const Simulation = ({ exercise }) => {
+  const [speed, setSpeed] = useState(0.0);
+  const [reset, setReset] = useState(false);
 
-  function onClickRestart() {}
+  function getExercise(exercise, speed) {
+    if (exercise.key == "exercise01") {
+      return <Simulation1 speed={speed} reset={reset} />;
+    } else if (exercise.key == "exercise02") {
+      return <Simulation0 speed={speed} reset={reset} />;
+    } else {
+      return <Simulation0 speed={speed} reset={reset} />;
+    }
+  }
 
   return (
     <div
@@ -16,13 +25,12 @@ const Simulation = () => {
       }}
     >
       <ControlBar
-        isPlaying={isPlaying}
-        setIsPlaying={setIsPlaying}
         speed={speed}
         setSpeed={setSpeed}
-        onClickRestart={onClickRestart}
+        onClickRestart={() => setReset(r => !r)}
       />
-      <RenderBox isPlaying={{isPlaying}} speed={{speed}}/>
+
+      {getExercise(exercise, speed)}
     </div>
   );
 };
