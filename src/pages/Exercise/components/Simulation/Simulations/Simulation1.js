@@ -15,13 +15,16 @@ import {
 
 const Simulation1 = ({ speed }) => {
   const scene = useRef(null);
+  const engineRef = useRef(Engine.create());
   const collideRef = useRef(false);
+
+  console.log("speed: ", speed);
 
   useEffect(() => {
     const cw = scene.current.clientWidth;
     const ch = scene.current.clientHeight;
+    const engine = engineRef.current;
 
-    const engine = Engine.create();
     const render = Render.create({
       element: scene.current,
       engine: engine,
@@ -132,6 +135,12 @@ const Simulation1 = ({ speed }) => {
       render.textures = {};
     };
   }, []);
+
+  useEffect(() => {
+    if (engineRef?.current) {
+      engineRef.current.timing.timeScale = speed;
+    }
+  }, [speed]);
 
   function createCar(xx, yy, width, height, wheelSize, density) {
     const group = Body.nextGroup(true),

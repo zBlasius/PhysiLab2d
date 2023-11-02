@@ -34,7 +34,7 @@ const Simulation = ({ exercise }) => {
         onClickRestart={onClickRestart}
       />
 
-      {getExercise(exercise)}
+      {getExercise(exercise, isPlaying, speed)}
     </div>
   );
 };
