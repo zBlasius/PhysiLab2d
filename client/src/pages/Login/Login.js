@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import {Form, Button } from "react-bootstrap";
 import logoImage from './crystal-ball.png';
 import { useNavigate } from "react-router";
+import { Context } from '../../store/Context';
 import './login.css'
 
 const SignInForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
+  const context = useContext(Context);
+  const {state, setState} = context
   const navigate = useNavigate();
 
   const singIn = () => {

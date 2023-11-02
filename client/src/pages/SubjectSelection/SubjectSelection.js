@@ -1,13 +1,13 @@
-import subjectsJSON from "../../database/subjects.json";
-
-import React from "react";
+import React, {useContext} from "react";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-
+import {Context} from "../../store/Context"
 import SubjectCard from "./components/SubjectCard";
 
 const SubjectSelection = () => {
   const navigate = useNavigate();
+  const context = useContext(Context)
+  const {state, setState} = context;
 
   return (
     <Container>
@@ -20,7 +20,7 @@ const SubjectSelection = () => {
           gap: 24,
         }}
       >
-        {Object.values(subjectsJSON).map((subject) => (
+        {Object.values(state.subjectsData).map((subject) => (
           <SubjectCard
             key={subject.key}
             subject={subject}

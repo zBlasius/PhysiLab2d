@@ -1,18 +1,19 @@
-import exercisesJSON from "../../database/exercises.json";
-
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext} from "react";
 import { Container } from "react-bootstrap";
 import ExerciseCard from "./components/ExerciseCard";
 import { useNavigate } from "react-router";
 import BackButton from "../../components/BackButton";
+import {Context} from "../../store/Context"
 
 const ExerciseSelection = ({ subject }) => {
   const navigate = useNavigate();
+  const context = useContext(Context)
+  const {state, setState} = context;
   const [exercises, setExercises] = useState(null);
 
   useEffect(() => {
     if (subject?.key && !exercises) {
-      setExercises(Object.values(exercisesJSON[subject.key]) ?? []);
+      setExercises(Object.values(state.exerciseData[subject.key]) ?? []);
     }
   }, [subject, exercises]);
 
