@@ -1,10 +1,9 @@
-import exercisesJSON from "../../database/exercises.json";
-
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import ExerciseCard from "./components/ExerciseCard";
 import { useNavigate } from "react-router";
 import BackButton from "../../components/BackButton";
+import exercisesJSON from "../../database/exercises.json"
 
 const ExerciseSelection = ({ subject }) => {
   const navigate = useNavigate();

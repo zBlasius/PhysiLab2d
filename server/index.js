@@ -1,12 +1,12 @@
 import express from 'express';
 import cors from 'cors';
-const app = express();
+const router = express();
 
-app.use(express.json());
-app.use(cors());
+router.use(express.json());
+router.use(cors());
 // * TODO - Fazer middleware para pegar o usuário corretamente
 
-app.get('/list_all_person', (req,res)=>{
+router.get('/teste', (req,res)=>{
   try {
     console.log('entrou aqui')
     return res.json({ok:true});
@@ -17,6 +17,6 @@ app.get('/list_all_person', (req,res)=>{
 })
 
 
-app.listen(8000, () => {
+router.listen(8000, () => {
   console.log('Server started on port 8000');
 });

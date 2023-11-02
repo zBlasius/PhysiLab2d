@@ -1,5 +1,4 @@
-import subjectsJSON from "../../database/subjects.json";
-
+import subjectsJSON from "../../database/subjects.json"
 import React from "react";
 import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
