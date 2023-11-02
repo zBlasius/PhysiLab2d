@@ -13,15 +13,16 @@ import {
   Events,
 } from "matter-js";
 
-const Simulation1 = ({ speed }) => {
+const Simulation1 = ({ speed, reset }) => {
   const scene = useRef(null);
   const engineRef = useRef(Engine.create());
-  const collideRef = useRef(false);
+  const collideRef = useRef(null);
 
   useEffect(() => {
     const cw = scene.current.clientWidth;
     const ch = scene.current.clientHeight;
     const engine = engineRef.current;
+    collideRef.current = null;
 
     const render = Render.create({
       element: scene.current,
@@ -132,7 +133,7 @@ const Simulation1 = ({ speed }) => {
       render.context = null;
       render.textures = {};
     };
-  }, []);
+  }, [reset]);
 
   useEffect(() => {
     if (engineRef?.current) {
