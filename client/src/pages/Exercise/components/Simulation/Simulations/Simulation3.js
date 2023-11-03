@@ -57,20 +57,20 @@ const Simulation3 = ({ speed, reset }) => {
     const scale = 0.8;
     const carA1 = createCar(
       cw / 6,
-      ch * 0.6 - 40,
+      ch * 0.6 - 60,
       200 * scale,
       30 * scale,
       30 * scale,
-      0.001
+      0.0020
     );
 
     const carA2 = createCar(
       cw / 6,
-      ch * 0.9 - 40,
+      ch * 0.9 - 60,
       200 * scale,
       30 * scale,
       30 * scale,
-      0.001
+      0.0003
     );
 
     const mouse = Mouse.create(render.canvas),
