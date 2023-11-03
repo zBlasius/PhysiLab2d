@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ControlBar from "./components/ControlBar";
 import Simulation0 from "./Simulations/Simulation0";
 import Simulation1 from "./Simulations/Simulation1";
+import Simulation2 from "./Simulations/Simulation2";
 
 const Simulation = ({ exercise }) => {
   const [speed, setSpeed] = useState(0.0);
@@ -11,7 +12,7 @@ const Simulation = ({ exercise }) => {
     if (exercise.key == "exercise01") {
       return <Simulation1 speed={speed} reset={reset} />;
     } else if (exercise.key == "exercise02") {
-      return <Simulation0 speed={speed} reset={reset} />;
+      return <Simulation2 speed={speed} reset={reset} />;
     } else {
       return <Simulation0 speed={speed} reset={reset} />;
     }
@@ -27,7 +28,7 @@ const Simulation = ({ exercise }) => {
       <ControlBar
         speed={speed}
         setSpeed={setSpeed}
-        onClickRestart={() => setReset(r => !r)}
+        onClickRestart={() => setReset((r) => !r)}
       />
 
       {getExercise(exercise, speed)}
