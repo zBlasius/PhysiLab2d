@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button, Container, Form, Modal } from "react-bootstrap";
-import BackButton from "../../../../components/BackButton";
 
 const Question = ({ exercise, onSubmitAnswer }) => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -18,7 +17,6 @@ const Question = ({ exercise, onSubmitAnswer }) => {
 
   return (
     <>
-      <BackButton />
 
       <Container style={{ border: "1px solid black" }}>
         <h2>{exercise?.name}</h2>

@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext} from "react";
 import { Container } from "react-bootstrap";
 import ExerciseCard from "./components/ExerciseCard";
 import { useNavigate } from "react-router";
-import BackButton from "../../components/BackButton";
 import {Context} from "../../store/Context"
 
 const ExerciseSelection = ({ subject }) => {
@@ -25,7 +24,6 @@ const ExerciseSelection = ({ subject }) => {
         gap: 24,
       }}
     >
-      <BackButton />
 
       <h1>{subject?.name ?? ""} __ Exercícios</h1>
 
