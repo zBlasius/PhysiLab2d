@@ -24,14 +24,14 @@ console.log('state', state)
                 Exercícios de física preparados par ao melhor compreendimento da matéria. 
                 Entenda o motivo, resolva problemas e alcance a nota 10!
             </p>
-            <p>
+            {/* <p>
                 <Button color="primary" className="mx-1 my-2">
                     Main call to action
                 </Button>
                 <Button color="secondary" className="my-2">
                     Secondary action
                 </Button>
-            </p>
+            </p> */}
         </Container>
     </div>
     <Album listSubject={state.subjectsData} />
