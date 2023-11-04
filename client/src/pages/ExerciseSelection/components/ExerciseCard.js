@@ -2,6 +2,17 @@ import React from "react";
 import { Button, Card } from "react-bootstrap";
 
 const ExerciseCard = ({ exercise, onClick }) => {
+
+  function exerciseStatus(){
+    if(exercise.completed){
+      return "Feito"
+    }
+
+    else {
+      return "Pendente"
+    }
+  }
+
   return (
     <Card style={{ width: "18rem" }}>
       <Card.Body
@@ -19,7 +30,7 @@ const ExerciseCard = ({ exercise, onClick }) => {
         </Button>
       </Card.Body>
 
-      <Card.Footer>TODO: Progresso</Card.Footer>
+      <Card.Footer>Status: {exerciseStatus()}</Card.Footer>
     </Card>
   );
 };

@@ -2,18 +2,35 @@
   "elementary-physics": {
     "key": "elementary-physics",
     "name": "Física - Ensino Fundamental",
+    "description": "Exercícios envolvendo pendulo e coisas básicas em física",
     "image": "physics.jpeg"
   },
   "highschool-physics": {
     "key": "highschool-physics",
     "name": "Física - Ensino Médio",
     "image": "physics.jpeg",
+    "description": "Exercícios envolvendo conteúdos do ensino médio, com conteúdos envolvendo física mecânica e outras coisas",
     "disabled": true
   },
   "college-physics": {
     "key": "college-physics",
     "name": "Física - Universidade",
     "image": "physics.jpeg",
+    "description": "Exercícios envolvendo conteúdos do ensino superior, com funções de alta complexidade",
+    "disabled": true
+  },
+  "other-thing": {
+    "key": "other-thing",
+    "name": "Física - outra coisa",
+    "image": "physics.jpeg",
+    "description": "Exercícios com física 01",
+    "disabled": true
+  },
+  "other-thing-2": {
+    "key": "other-thing-2",
+    "name": "Física - sei la",
+    "image": "physics.jpeg",
+    "description": "Exercícios teste",
     "disabled": true
   }
 }

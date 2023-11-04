@@ -1,34 +1,41 @@
 import React, {useContext} from "react";
-import { Container } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import {Context} from "../../store/Context"
 import SubjectCard from "./components/SubjectCard";
+import { Button, Container, Jumbotron } from 'reactstrap';
+import Album from "../../components/Album";
 
 const SubjectSelection = () => {
   const navigate = useNavigate();
   const context = useContext(Context)
   const {state, setState} = context;
+console.log('state', state)
 
   return (
-    <Container>
-      <h1>Matérias</h1>
-
-      <Container
-        style={{
-          padding: "24px 0",
-          display: "flex",
-          gap: 24,
-        }}
-      >
-        {Object.values(state.subjectsData).map((subject) => (
-          <SubjectCard
-            key={subject.key}
-            subject={subject}
-            onClick={() => navigate(subject.key)}
-          />
-        ))}
-      </Container>
-    </Container>
+    <main role="main">
+    <div className="text-center">
+        <Container className="lead text-muted my-5">
+            <h1 className="jumbotron-heading">Matérias</h1>
+            <p className="lead text-muted p-3">
+                Exercícios de física preparados par ao melhor compreendimento da matéria. 
+                Entenda o motivo, resolva problemas e alcance a nota 10!
+                Exercícios de física preparados par ao melhor compreendimento da matéria. 
+                Entenda o motivo, resolva problemas e alcance a nota 10!
+                Exercícios de física preparados par ao melhor compreendimento da matéria. 
+                Entenda o motivo, resolva problemas e alcance a nota 10!
+            </p>
+            <p>
+                <Button color="primary" className="mx-1 my-2">
+                    Main call to action
+                </Button>
+                <Button color="secondary" className="my-2">
+                    Secondary action
+                </Button>
+            </p>
+        </Container>
+    </div>
+    <Album listSubject={state.subjectsData} />
+</main>
   );
 };
 

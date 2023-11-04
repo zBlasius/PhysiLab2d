@@ -3,37 +3,51 @@ import { Route, Routes } from "react-router-dom";
 import SubjectSelection from "../SubjectSelection/SubjectSelection";
 import ExerciseSelection from "../ExerciseSelection/ExerciseSelection";
 import Exercise from "../Exercise/Exercise";
-import { Container } from "react-bootstrap";
 import Login from "../Login/Login";
 import SingIn from "../SingIn/SingIn";
 import { Context } from "../../store/Context";
 import appCtxDefaultValue from "../../store/Type";
 import api from "../../api/api";
+import Header from "../../components/Header";
 
 import "./reset.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [state, setState] = useState(appCtxDefaultValue.state)
+  const [collapsed, setCollapsed] = useState(true);
+  const [socialLinks, setSocialLinks] = useState([{
+    text: "Follow on Twitter",
+    url: "http://www.twitter.com/nas5w"
+  }])
+  const [album, setAlbum] = useState([
+    {
+      src: "https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180",
+      description: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+      altText: "Item alt text",
+      time: "9 mins"
+    }
+  ]);
 
-  useEffect(()=>{
-    api.get("get_all_info", {params: {teste:true}})
-      .then(ret=>{
-        setState({...ret.data})
+  useEffect(() => {
+    api.get("get_all_info", { params: { teste: true } })
+      .then(ret => {
+        setState({ ...ret.data })
       })
   }, [])
-  
-  return (
-    <Context.Provider value={{state, setState}}>
-      <Container
-        style={{
-          height: "100vh",
-          width: "100vw",
-          padding: 36,
-          display: 'flex',
 
-        }}
-      >
+  function toggleNavbar() {
+    setCollapsed(!collapsed)
+  }
+
+  return (
+    <Context.Provider value={{ state, setState }}>
+      <div>
+        <Header
+          collapsed={collapsed}
+          toggleNavbar={toggleNavbar}
+          socialLinks={socialLinks}
+        />
         <Routes>
           <Route index element={<SubjectSelection />} />
 
@@ -75,7 +89,7 @@ function App() {
             }
           />
         </Routes>
-      </Container>
+      </div>
     </Context.Provider>
   );
 }
