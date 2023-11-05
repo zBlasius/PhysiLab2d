@@ -17,63 +17,83 @@ const Question = ({ exercise, onSubmitAnswer }) => {
 
   return (
     <>
-      <Container style={{ border: "1px solid black" }}>
-        <h2>{exercise?.name}</h2>
-        <p>{exercise?.question}</p>
-        <Form
+      <Container className="lead text-muted mt-4">
+        <h3 className="jumbotron-heading text-center">{exercise?.name}</h3>
+        <p className="lead text-muted p-2">{exercise?.question}</p>
+
+        <div
+          className="p-2"
           style={{
             display: "flex",
             justifyContent: "space-between",
-            alignItens: "center",
+            alignItems: "center",
           }}
         >
-          {exercise?.options?.map((option, i) => (
-            <Form.Group key={option}>
-              <Form.Check
-                type="radio"
-                label={option}
-                name="options"
-                value={option}
-                checked={selectedOption === option}
-                onChange={handleOptionChange}
-              />
-            </Form.Group>
-          ))}
-        </Form>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItens: "center",
-          }}
-        >
-          <Button
-            variant={selectedOption ? "primary" : "secondary"}
-            onClick={() => setShowModal(true)}
+          <Form
+            style={{
+              display: "flex",
+              flexDirection: "Column",
+              gap: 3,
+              justifyContent: "space-between",
+              alignItens: "center",
+            }}
           >
-            Enviar Resposta
-          </Button>
-        </div>
-        <Modal show={showModal} onHide={handleCloseModal}>
-          <Modal.Header closeButton>
-            <Modal.Title>
-              {exercise.answer == selectedOption
-                ? "Resposta Correta"
-                : "Resposta Incorreta"}
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            {exercise.answer == selectedOption
-              ? "Parabéns! Você acertou."
-              : "Que pena! Tente outra vez."}
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="primary" onClick={handleCloseModal}>
-              Concluir
+            {exercise?.options?.map((option, i) => {
+              return (
+                <Form.Group key={option} controlId={option}>
+                  <Form.Check
+                    type="radio"
+                    label={option}
+                    name="options"
+                    value={option}
+                    checked={selectedOption === option}
+                    onChange={handleOptionChange}
+                  />
+                </Form.Group>
+              );
+            })}
+          </Form>
+
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItens: "center",
+            }}
+          >
+            <Button
+              variant={selectedOption ? "primary" : "secondary"}
+              onClick={() => {
+                if (selectedOption) setShowModal(true);
+              }}
+            >
+              Enviar Resposta
             </Button>
-          </Modal.Footer>
-        </Modal>
+          </div>
+
+          <div> </div>
+        </div>
       </Container>
+
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>
+            {exercise.answer == selectedOption
+              ? "Resposta Correta"
+              : "Resposta Incorreta"}
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {exercise.answer == selectedOption
+            ? "Parabéns! Você acertou."
+            : "Que pena! Tente outra vez."}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={handleCloseModal}>
+            Concluir
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </>
   );
 };

@@ -21,17 +21,16 @@ function BasicExample() {
   }
 
   return (
-    <Navbar expand="lg" className="bg-dark navbar-brand">
-      <Container className="text-white">
+    <Navbar className="bg-dark navbar-brand" style={{ margin: 0 }}>
+      <Container>
         <Navbar.Brand href="/">
-          <span className="text-white"> Math Learning </span>
+          <span className="text-white">Math Learning</span>
         </Navbar.Brand>
 
         <div style={{ right: 0 }}>
           <Button
             onClick={() => navigate(removeLastPathSegment(location.pathname))}
             color="secondary"
-            className="my-2"
           >
             Voltar
           </Button>
