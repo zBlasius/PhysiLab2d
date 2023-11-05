@@ -14,40 +14,23 @@ import "./reset.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const [state, setState] = useState(appCtxDefaultValue.state)
+  const [state, setState] = useState(appCtxDefaultValue.state);
   const [collapsed, setCollapsed] = useState(true);
-  const [socialLinks, setSocialLinks] = useState([{
-    text: "Follow on Twitter",
-    url: "http://www.twitter.com/nas5w"
-  }])
-  const [album, setAlbum] = useState([
-    {
-      src: "https://placeholdit.imgix.net/~text?txtsize=33&txt=318%C3%97180&w=318&h=180",
-      description: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
-      altText: "Item alt text",
-      time: "9 mins"
-    }
-  ]);
 
   useEffect(() => {
-    api.get("get_all_info", { params: { teste: true } })
-      .then(ret => {
-        setState({ ...ret.data })
-      })
-  }, [])
+    api.get("get_all_info", { params: { teste: true } }).then((ret) => {
+      setState({ ...ret.data });
+    });
+  }, []);
 
   function toggleNavbar() {
-    setCollapsed(!collapsed)
+    setCollapsed(!collapsed);
   }
 
   return (
     <Context.Provider value={{ state, setState }}>
       <div>
-        <Header
-          collapsed={collapsed}
-          toggleNavbar={toggleNavbar}
-          socialLinks={socialLinks}
-        />
+        <Header collapsed={collapsed} toggleNavbar={toggleNavbar} />
         <Routes>
           <Route index element={<SubjectSelection />} />
 
@@ -55,14 +38,18 @@ function App() {
           <Route
             path="elementary-physics"
             element={
-              <ExerciseSelection subject={state.subjectsData["elementary-physics"]} />
+              <ExerciseSelection
+                subject={state.subjectsData["elementary-physics"]}
+              />
             }
           />
           <Route
             path="elementary-physics/exercise01"
             element={
               <Exercise
-                exercise={state.exerciseData["elementary-physics"]["exercise01"]}
+                exercise={
+                  state.exerciseData["elementary-physics"]["exercise01"]
+                }
               />
             }
           />
@@ -70,7 +57,9 @@ function App() {
             path="elementary-physics/exercise02"
             element={
               <Exercise
-                exercise={state.exerciseData["elementary-physics"]["exercise02"]}
+                exercise={
+                  state.exerciseData["elementary-physics"]["exercise02"]
+                }
               />
             }
           />
@@ -78,16 +67,13 @@ function App() {
             path="elementary-physics/exercise03"
             element={
               <Exercise
-                exercise={state.exerciseData["elementary-physics"]["exercise03"]}
+                exercise={
+                  state.exerciseData["elementary-physics"]["exercise03"]
+                }
               />
             }
           />
-          <Route
-            path="singIn"
-            element={
-              <SingIn />
-            }
-          />
+          <Route path="singIn" element={<SingIn />} />
         </Routes>
       </div>
     </Context.Provider>

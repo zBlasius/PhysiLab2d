@@ -17,7 +17,6 @@ const Question = ({ exercise, onSubmitAnswer }) => {
 
   return (
     <>
-
       <Container style={{ border: "1px solid black" }}>
         <h2>{exercise?.name}</h2>
         <p>{exercise?.question}</p>

@@ -1,15 +1,14 @@
-import React, { useContext, useState } from 'react';
-import {Form, Button } from "react-bootstrap";
-import logoImage from './crystal-ball.png';
+import React, { useContext, useState } from "react";
+import { Form, Button } from "react-bootstrap";
+import logoImage from "./crystal-ball.png";
 import { useNavigate } from "react-router";
-import { Context } from '../../store/Context';
-import './login.css'
+import { Context } from "../../store/Context";
+import "./login.css";
 
 const SignInForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const context = useContext(Context);
-  const {state, setState} = context
   const navigate = useNavigate();
 
   const singIn = () => {
@@ -26,7 +25,6 @@ const SignInForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
   };
 
   return (
@@ -46,7 +44,7 @@ const SignInForm = () => {
           />
           <label htmlFor="floatingInput">Email address</label>
         </div>
-        
+
         <div className="form-floating">
           <input
             type="password"
@@ -70,7 +68,11 @@ const SignInForm = () => {
             Remember me
           </label>
         </div>
-        <Button className="btn btn-primary w-100 py-2" type="submit" onClick={()=> singIn()}>
+        <Button
+          className="btn btn-primary w-100 py-2"
+          type="submit"
+          onClick={() => singIn()}
+        >
           Sign in
         </Button>
         <p className="mt-5 mb-3 text-body-secondary">Math learning</p>
