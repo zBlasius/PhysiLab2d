@@ -46,13 +46,13 @@ const Simulation1 = ({ speed, reset }) => {
 
     const ground = Bodies.rectangle(cw / 2, ch * 0.9, cw, 30, {
       isStatic: true,
-      friction: 0.8,
+      friction: 0.4,
     });
 
     const scale = 0.8;
     const carA = createCar(
       cw / 6,
-      ch * 0.9 - 40,
+      ch * 0.9 - 45,
       200 * scale,
       30 * scale,
       30 * scale,
@@ -60,7 +60,7 @@ const Simulation1 = ({ speed, reset }) => {
     );
     const carB = createCar(
       cw * 0.6,
-      ch * 0.9 - 40,
+      ch * 0.9 - 45,
       200 * scale,
       30 * scale,
       30 * scale,
@@ -82,8 +82,33 @@ const Simulation1 = ({ speed, reset }) => {
 
     World.add(engine.world, [ground, carA, carB]); // mouseConstraint
 
-    const horizontalForce = 0.0007;
+    // Adicione labels aos carros durante a criação
+    carA.label = "Veículo A";
+    carB.label = "Veículo B";
 
+    // Crie elementos HTML para as labels
+    const labelCarA = document.createElement("div");
+    labelCarA.innerText = carA.label;
+    labelCarA.style.position = "absolute";
+    labelCarA.style.left = `${carA.bodies[0].position.x}px`;
+    labelCarA.style.top = `${carA.bodies[0].position.y - 80}px`;
+    labelCarA.style.color = "red";
+    labelCarA.style.font = "16px Arial";
+
+    const labelCarB = document.createElement("div");
+    labelCarB.innerText = carB.label;
+    labelCarB.style.position = "absolute";
+    labelCarB.style.left = `${carB.bodies[0].position.x}px`;
+    labelCarB.style.top = `${carB.bodies[0].position.y - 80}px`;
+    labelCarB.style.color = "blue";
+    labelCarB.style.font = "16px Arial";
+
+    // Anexe os elementos das labels ao elemento pai (scene.current)
+    scene.current.appendChild(labelCarA);
+    scene.current.appendChild(labelCarB);
+
+    const horizontalForce = 0.0007;
+    let outScreen = false;
     const applyHorizontalForce = () => {
       if (!collideRef.current) {
         carA.bodies.forEach((body) => {
@@ -103,6 +128,25 @@ const Simulation1 = ({ speed, reset }) => {
             });
           }
         });
+      }
+
+      const thresholdX = 1150;
+      // Check if the car's x position exceeds the threshold
+      if (carA.bodies[0].position.x > thresholdX && !outScreen) {
+        // Remove the label for carA
+        scene.current.removeChild(labelCarA);
+        outScreen = true;
+      } else {
+        labelCarA.style.left = `${carA.bodies[0].position.x}px`;
+      }
+
+      // Check if the car's x position exceeds the threshold
+      if (carB.bodies[0].position.x > thresholdX && !outScreen) {
+        // Remove the label for carB
+        scene.current.removeChild(labelCarB);
+        outScreen = true;
+      } else {
+        labelCarB.style.left = `${carB.bodies[0].position.x}px`;
       }
 
       requestAnimationFrame(applyHorizontalForce);
@@ -132,6 +176,8 @@ const Simulation1 = ({ speed, reset }) => {
       render.canvas = null;
       render.context = null;
       render.textures = {};
+      scene.current.removeChild(labelCarA);
+      scene.current.removeChild(labelCarB);
     };
   }, [reset]);
 

@@ -3,11 +3,11 @@
     "exercise01": {
       "key": "exercise01",
       "name": "Interpretação de uma Interação Forçada",
-      "question": "Na busca por soluções de engenharia, um grupo de cientistas e engenheiros realizou um experimento com dois veículos idênticos de massas semelhantes em uma pista retilínea. Os veículos foram posicionados próximos um do outro, quase em contato, mas sem tocar. Um dos veículos (Veículo A) foi impulsionado em direção ao outro (Veículo B) com uma força constante e uniforme. Qual foi o resultado dessa interação?",
+      "question": "Dois veículos idênticos, posicionados próximos um do outro em uma pista retilínea de baixo atrito, foram submetidos a um experimento no qual um deles (Veículo A) foi impulsionado em direção ao outro (Veículo B) com uma força constante e uniforme. Qual foi o resultado dessa interação?",
       "options": [
         "Veículo A parou imediatamente, e Veículo B permaneceu parado.", 
         "Veículo A parou imediatamente, e Veículo B foi empurrado na direção oposta.", 
-        "Ambos os veículos pararam imediatamente", 
+        "Ambos os veículos pararam imediatamente.", 
         "Veículo A continuou a se mover na direção oposta a Veículo B."
       ],
       "answer": "Veículo A parou imediatamente, e Veículo B foi empurrado na direção oposta.",

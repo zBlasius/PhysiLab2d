@@ -44,12 +44,12 @@ const Simulation3 = ({ speed, reset }) => {
     Render.run(render);
     Runner.run(runner, engine);
 
-    const ground1 = Bodies.rectangle(cw / 2, ch * 0.6, cw, 30, {
+    const ground1 = Bodies.rectangle(cw / 2, ch * 0.5, cw, 40, {
       isStatic: true,
       friction: 0.8,
     });
 
-    const ground2 = Bodies.rectangle(cw / 2, ch * 0.9, cw, 30, {
+    const ground2 = Bodies.rectangle(cw / 2, ch * 0.9, cw, 40, {
       isStatic: true,
       friction: 0.8,
     });
@@ -57,11 +57,11 @@ const Simulation3 = ({ speed, reset }) => {
     const scale = 0.8;
     const carA1 = createCar(
       cw / 6,
-      ch * 0.6 - 60,
+      ch * 0.5 - 60,
       200 * scale,
       30 * scale,
       30 * scale,
-      0.002
+      0.001
     );
 
     const carA2 = createCar(
@@ -70,7 +70,7 @@ const Simulation3 = ({ speed, reset }) => {
       200 * scale,
       30 * scale,
       30 * scale,
-      0.0003
+      0.00025
     );
 
     const mouse = Mouse.create(render.canvas),

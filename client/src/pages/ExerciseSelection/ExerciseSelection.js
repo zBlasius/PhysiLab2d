@@ -55,9 +55,13 @@ const ExerciseSelection = ({ subject }) => {
         <div style={{ cursor: "auto" }} className="card mb-3" key={index}>
           <div className="card-body">
             <div className="d-flex flex-column flex-lg-row">
-              <span className="avatar avatar-text rounded-3 me-4 mb-2">
-                {""}
-              </span>
+              <img
+                // src="/img/physics.jpeg" TODO:
+                class="rounded-3"
+                style={{ width: 56, height: 56, marginRight: 12 }}
+                alt="Imagem do exercício"
+              />
+
               <div className="row flex-fill">
                 <div className="col-sm-5">
                   <h4 className="h5">{exercise?.name}</h4>
