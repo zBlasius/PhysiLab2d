@@ -47,12 +47,10 @@ const ExerciseSelection = ({ subject }) => {
 
   return (
     <div className="container">
-      <div className="text-center mb-5 my-4">
-        <h3>{subject.name}</h3>
-        <p className="lead">math learning</p>
+      <div className="text-center mt-5 mb-5">
+        <h3>Exercícios</h3>
+        <p className="lead">Selecione algum exercício abaixo, bons estudos!</p>
       </div>
-
-      {console.log("teste exer", exercises)}
       {exercises?.map((exercise, index) => (
         <div style={{ cursor: "auto" }} className="card mb-3" key={index}>
           <div className="card-body">
@@ -77,24 +75,5 @@ const ExerciseSelection = ({ subject }) => {
     </div>
   );
 };
-
-// <Container
-//   style={{
-//     display: "flex",
-//     flexDirection: "column",
-//     gap: 24,
-//   }}
-// >
-
-//   <h1>{subject?.name ?? ""} __ Exercícios</h1>
-
-//   {exercises?.map((exercise) => (
-//     <ExerciseCard
-//       key={exercise.key}
-//       exercise={exercise}
-//       onClick={() => navigate("/" + subject.key + "/" + exercise.key)}
-//     />
-//   ))}
-// </Container>
 
 export default ExerciseSelection;

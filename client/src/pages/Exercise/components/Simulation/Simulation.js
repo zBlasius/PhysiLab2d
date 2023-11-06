@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import ControlBar from "./components/ControlBar";
 import Simulation0 from "./Simulations/Simulation0";
 import Simulation1 from "./Simulations/Simulation1";
@@ -26,9 +26,11 @@ const Simulation = ({ exercise }) => {
       style={{
         height: "90%",
         width: "100%",
+        position: "relative",
       }}
     >
       <ControlBar
+        style={{ position: "absolute", top: 0, left: 0, zIndex: 999 }}
         speed={speed}
         setSpeed={setSpeed}
         onClickRestart={() => setReset((r) => !r)}

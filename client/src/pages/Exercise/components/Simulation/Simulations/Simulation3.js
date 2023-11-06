@@ -61,7 +61,7 @@ const Simulation3 = ({ speed, reset }) => {
       200 * scale,
       30 * scale,
       30 * scale,
-      0.0020
+      0.002
     );
 
     const carA2 = createCar(
@@ -333,7 +333,7 @@ const Simulation3 = ({ speed, reset }) => {
     return car;
   }
 
-  return <div style={{ height: "100%", width: "100%" }} ref={scene}></div>;
+  return <div style={{ height: "100%", width: "100%", position: "relative" }} ref={scene}></div>;
 };
 
 export default Simulation3;

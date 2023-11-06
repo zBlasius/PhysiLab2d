@@ -2,14 +2,11 @@ import React from "react";
 import { Button, Card } from "react-bootstrap";
 
 const ExerciseCard = ({ exercise, onClick }) => {
-
-  function exerciseStatus(){
-    if(exercise.completed){
-      return "Feito"
-    }
-
-    else {
-      return "Pendente"
+  function exerciseStatus() {
+    if (exercise.completed) {
+      return "Feito";
+    } else {
+      return "Pendente";
     }
   }
 

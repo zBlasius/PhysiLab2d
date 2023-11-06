@@ -7,9 +7,9 @@ import {
   Container,
 } from "react-bootstrap";
 
-const ControlBar = ({ speed, setSpeed, onClickRestart }) => {
+const ControlBar = ({ speed, setSpeed, onClickRestart, style }) => {
   return (
-    <Container>
+    <Container style={style}>
       <ButtonGroup>
         <ToggleButtonGroup
           type="radio"
