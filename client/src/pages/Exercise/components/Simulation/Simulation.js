@@ -24,13 +24,20 @@ const Simulation = ({ exercise }) => {
   return (
     <div
       style={{
-        height: "90%",
-        width: "100%",
+        height: 500,
+        width: 1250,
+        margin: "auto",
         position: "relative",
       }}
     >
       <ControlBar
-        style={{ position: "absolute", top: 0, left: 0, zIndex: 999 }}
+        style={{
+          position: "absolute",
+          top: 12,
+          left: 0,
+          zIndex: 999,
+          width: 300,
+        }}
         speed={speed}
         setSpeed={setSpeed}
         onClickRestart={() => setReset((r) => !r)}

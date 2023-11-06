@@ -25,11 +25,11 @@ const RenderBox = ({ speed }) => {
         height: ch,
         wireframes: false,
         background: "transparent",
-        showCollisions: true,
-        showVelocity: true,
-        showDebug: true,
-        showBounds: true,
-        showPositions: true,
+        // showCollisions: true,
+        // showVelocity: true,
+        // showDebug: true,
+        // showBounds: true,
+        // showPositions: true,
       },
     });
 
@@ -115,7 +115,18 @@ const RenderBox = ({ speed }) => {
     };
   }, []);
 
-  return <div style={{ height: "100%", width: "100%", position: "relative" }} ref={scene}></div>;
+  return (
+    <div
+      style={{
+        height: "100%",
+        margin: "auto",
+        width: "100%",
+        position: "relative",
+        zIndex: 90,
+      }}
+      ref={scene}
+    />
+  );
 };
 
 export default RenderBox;

@@ -30,11 +30,11 @@ const Simulation2 = ({ speed, reset }) => {
         height: ch,
         wireframes: false,
         background: "linear-gradient(to bottom, #f0f0f0, #dcdcdc)",
-        showCollisions: true,
-        showVelocity: true,
-        showDebug: true,
-        showBounds: true,
-        showPositions: true,
+        // showCollisions: true,
+        // showVelocity: true,
+        // showDebug: true,
+        // showBounds: true,
+        // showPositions: true,
       },
     });
     const runner = Runner.create();
@@ -165,7 +165,18 @@ const Simulation2 = ({ speed, reset }) => {
     return ropeSegments;
   }
 
-  return <div style={{ height: "100%", width: "100%", position: "relative" }} ref={scene}></div>;
+  return (
+    <div
+      style={{
+        height: "100%",
+        margin: "auto",
+        width: "100%",
+        position: "relative",
+        zIndex: 90,
+      }}
+      ref={scene}
+    />
+  );
 };
 
 export default Simulation2;
