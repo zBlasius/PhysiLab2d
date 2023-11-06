@@ -25,6 +25,7 @@ const Exercise = ({ exercise }) => {
   return (
     <div style={{ height: "700px", width: "100%" }}>
       <Question exercise={exercise} onSubmitAnswer={onSubmitAnswer} />
+      <div style={{ height: 8 }} />
       <Simulation exercise={exercise} />
     </div>
   );
