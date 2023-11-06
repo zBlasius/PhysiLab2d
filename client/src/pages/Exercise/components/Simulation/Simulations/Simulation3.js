@@ -10,7 +10,6 @@ import {
   MouseConstraint,
   Composite,
   Constraint,
-  Events,
 } from "matter-js";
 
 const Simulation3 = ({ speed, reset }) => {
@@ -55,7 +54,7 @@ const Simulation3 = ({ speed, reset }) => {
     });
 
     const scale = 0.8;
-    const carA1 = createCar(
+    const carA = createCar(
       cw / 6,
       ch * 0.5 - 60,
       200 * scale,
@@ -64,7 +63,7 @@ const Simulation3 = ({ speed, reset }) => {
       0.001
     );
 
-    const carA2 = createCar(
+    const carB = createCar(
       cw / 6,
       ch * 0.9 - 60,
       200 * scale,
@@ -86,12 +85,35 @@ const Simulation3 = ({ speed, reset }) => {
 
     render.mouse = mouse;
 
-    World.add(engine.world, [mouseConstraint, ground1, ground2, carA1, carA2]);
+    World.add(engine.world, [mouseConstraint, ground1, ground2, carA, carB]);
+
+    // Adicione labels aos carros durante a criação
+    carA.label = "Veículo A - 100g";
+    carB.label = "Veículo B - 25g";
+
+    // Crie elementos HTML para as labels
+    const labelCarA = document.createElement("div");
+    labelCarA.innerText = carA.label;
+    labelCarA.style.position = "absolute";
+    labelCarA.style.left = `${carA.bodies[0].position.x - 25}px`;
+    labelCarA.style.top = `${carA.bodies[0].position.y - 70}px`;
+    labelCarA.style.color = "red";
+    labelCarA.style.font = "16px Arial";
+    scene.current.appendChild(labelCarA); // Append the label element to the DOM
+
+    const labelCarB = document.createElement("div");
+    labelCarB.innerText = carB.label;
+    labelCarB.style.position = "absolute";
+    labelCarB.style.left = `${carB.bodies[0].position.x - 25}px`;
+    labelCarB.style.top = `${carB.bodies[0].position.y - 70}px`;
+    labelCarB.style.color = "blue";
+    labelCarB.style.font = "16px Arial";
+    scene.current.appendChild(labelCarB); // Append the label element to the DOM
 
     const horizontalForce = 0.0007;
 
     const applyHorizontalForce = () => {
-      carA1.bodies.forEach((body) => {
+      carA.bodies.forEach((body) => {
         if (body.label === "Circle Body") {
           Body.applyForce(body, body.position, {
             x: horizontalForce,
@@ -100,7 +122,7 @@ const Simulation3 = ({ speed, reset }) => {
         }
       });
 
-      carA2.bodies.forEach((body) => {
+      carB.bodies.forEach((body) => {
         if (body.label === "Circle Body") {
           Body.applyForce(body, body.position, {
             x: horizontalForce,
@@ -108,6 +130,29 @@ const Simulation3 = ({ speed, reset }) => {
           });
         }
       });
+
+      const thresholdX = 1150;
+      // Check if the car's x position exceeds the threshold
+      if (
+        carA.bodies[0].position.x > thresholdX &&
+        scene.current.contains(labelCarA)
+      ) {
+        // Remove the label for carA
+        scene.current.removeChild(labelCarA);
+      } else {
+        labelCarA.style.left = `${carA.bodies[0].position.x - 25}px`;
+      }
+
+      // Check if the car's x position exceeds the threshold
+      if (
+        carB.bodies[0].position.x > thresholdX &&
+        scene.current.contains(labelCarB)
+      ) {
+        // Remove the label for carB
+        scene.current.removeChild(labelCarB);
+      } else {
+        labelCarB.style.left = `${carB.bodies[0].position.x - 25}px`;
+      }
 
       requestAnimationFrame(applyHorizontalForce);
     };
@@ -123,6 +168,12 @@ const Simulation3 = ({ speed, reset }) => {
       render.canvas = null;
       render.context = null;
       render.textures = {};
+      if (scene?.current?.contains(labelCarA)) {
+        scene.current.removeChild(labelCarA);
+      }
+      if (scene?.current?.contains(labelCarB)) {
+        scene.current.removeChild(labelCarB);
+      }
     };
   }, [reset]);
 
