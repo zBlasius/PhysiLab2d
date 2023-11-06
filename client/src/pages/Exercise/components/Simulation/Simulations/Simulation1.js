@@ -67,20 +67,20 @@ const Simulation1 = ({ speed, reset }) => {
       0.001
     );
 
-    const mouse = Mouse.create(render.canvas),
-      mouseConstraint = MouseConstraint.create(engine, {
-        mouse: mouse,
-        constraint: {
-          stiffness: 0.2,
-          render: {
-            visible: false,
-          },
-        },
-      });
+    // const mouse = Mouse.create(render.canvas),
+    //   mouseConstraint = MouseConstraint.create(engine, {
+    //     mouse: mouse,
+    //     constraint: {
+    //       stiffness: 0.2,
+    //       render: {
+    //         visible: false,
+    //       },
+    //     },
+    //   });
 
-    render.mouse = mouse;
+    // render.mouse = mouse;
 
-    World.add(engine.world, [mouseConstraint, ground, carA, carB]);
+    World.add(engine.world, [ground, carA, carB]); // mouseConstraint
 
     const horizontalForce = 0.0007;
 

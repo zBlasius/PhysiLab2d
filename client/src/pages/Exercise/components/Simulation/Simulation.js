@@ -2,7 +2,8 @@ import React, { useRef, useState } from "react";
 import ControlBar from "./components/ControlBar";
 import Simulation0 from "./Simulations/Simulation0";
 import Simulation1 from "./Simulations/Simulation1";
-import Simulation2 from "./Simulations/Simulation2";
+// import Simulation2 from "./Simulations/Simulation2";
+import Simulation2 from "./Simulations/Simulation2v2";
 import Simulation3 from "./Simulations/Simulation3";
 
 const Simulation = ({ exercise }) => {
