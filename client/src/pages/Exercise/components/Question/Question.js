@@ -75,7 +75,7 @@ const Question = ({ exercise, onSubmitAnswer }) => {
         </div>
       </Container>
 
-      <Modal show={showModal} onHide={handleCloseModal}>
+      <Modal show={showModal} onHide={handleCloseModal} centered>
         <Modal.Header closeButton>
           <Modal.Title>
             {exercise.answer == selectedOption
