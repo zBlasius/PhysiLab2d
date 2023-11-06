@@ -12,7 +12,8 @@
       ],
       "answer": "Veículo A parou imediatamente, e Veículo B foi empurrado na direção oposta.",
       "completed": true,
-      "groupKey": "elementary-physics"
+      "groupKey": "elementary-physics",
+      "imgPath": "img/sim1.png"
     },
     "exercise02": {
       "key": "exercise02",
@@ -38,7 +39,8 @@
         "Depende do tamanho dos carros."
       ],
       "answer": "Carro B.",
-      "groupKey": "elementary-physics"
+      "groupKey": "elementary-physics",
+      "imgPath": "img/sim3.png"
     }
   }
 }
