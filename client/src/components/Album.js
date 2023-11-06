@@ -66,7 +66,7 @@ const Album = ({ listSubject }) => {
                         size="sm"
                         onClick={() => navigate("/" + item.key)}
                         disabled={item.disabled}
-                        style={{ width: "40%" }}
+                        style={{ width: "40%", marginTop: 8 }}
                       >
                         {item.disabled ? "Em breve" : "Praticar"}
                       </Button>
