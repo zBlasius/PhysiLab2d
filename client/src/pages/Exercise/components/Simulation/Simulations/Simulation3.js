@@ -333,7 +333,7 @@ const Simulation3 = ({ speed, reset }) => {
     return car;
   }
 
-  return <div style={{ height: "100%", width: "100%" }} ref={scene}></div>;
+  return <div style={{ height: "100%", width: "100%", position: "relative" }} ref={scene}></div>;
 };
 
 export default Simulation3;

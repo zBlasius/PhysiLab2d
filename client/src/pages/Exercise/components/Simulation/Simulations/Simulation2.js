@@ -165,7 +165,7 @@ const Simulation2 = ({ speed, reset }) => {
     return ropeSegments;
   }
 
-  return <div style={{ height: "100%", width: "100%" }} ref={scene}></div>;
+  return <div style={{ height: "100%", width: "100%", position: "relative" }} ref={scene}></div>;
 };
 
 export default Simulation2;
