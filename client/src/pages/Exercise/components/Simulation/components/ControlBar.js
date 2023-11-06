@@ -15,10 +15,27 @@ const ControlBar = ({ speed, setSpeed, onClickRestart, style }) => {
           type="radio"
           name="speed-options"
           value={speed}
-          onChange={(val) => setSpeed(val)}
+          onChange={(val) => {
+            if (val >= 0.1) {
+              setSpeed(val);
+            }
+          }}
         >
-          <ToggleButton id="speed-options-0.0" variant="secondary" value={0.0}>
-            Pausar
+          <ToggleButton
+            id="speed-options-0.0"
+            variant="secondary"
+            value={0.0}
+            onClick={() => {
+              setSpeed((val) => {
+                if (val <= 0.1 && speed <= 0.1) {
+                  return 1.0;
+                } else {
+                  return 0.0;
+                }
+              });
+            }}
+          >
+            {speed <= 0.1 ? "Retomar" : "Pausar"}
           </ToggleButton>
           <ToggleButton id="speed-options-0.5" variant="secondary" value={0.5}>
             0.5x
