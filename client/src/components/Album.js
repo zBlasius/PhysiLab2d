@@ -19,6 +19,7 @@ const Album = ({ listSubject }) => {
   const { state, setState } = context;
 
   function getPercent(keySubject) {
+    // FIXME: Fix
     if (!keySubject || !state.exerciseData[keySubject]) return "0";
     let listExercises = Object.values(state.exerciseData[keySubject]);
     let percent = helper.calcPercentage(listExercises);
@@ -61,13 +62,13 @@ const Album = ({ listSubject }) => {
                     >
                       <Button
                         outline
-                        color="primary"
+                        color={item.disabled ? "secondary" : "primary"}
                         size="sm"
                         onClick={() => navigate("/" + item.key)}
                         disabled={item.disabled}
                         style={{ width: "40%" }}
                       >
-                        Fazer exercícios
+                        {item.disabled ? "Em breve" : "Praticar"}
                       </Button>
                     </div>
                   </CardBody>
