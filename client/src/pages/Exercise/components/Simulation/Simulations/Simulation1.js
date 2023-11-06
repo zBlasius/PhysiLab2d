@@ -176,8 +176,12 @@ const Simulation1 = ({ speed, reset }) => {
       render.canvas = null;
       render.context = null;
       render.textures = {};
-      scene.current.removeChild(labelCarA);
-      scene.current.removeChild(labelCarB);
+      if (scene?.current?.contains(labelCarA)) {
+        scene.current.removeChild(labelCarA);
+      }
+      if (scene?.current?.contains(labelCarB)) {
+        scene.current.removeChild(labelCarB);
+      }
     };
   }, [reset]);
 
