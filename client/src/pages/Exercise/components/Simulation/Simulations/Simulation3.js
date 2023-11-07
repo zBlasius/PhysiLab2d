@@ -88,8 +88,8 @@ const Simulation3 = ({ speed, reset }) => {
     World.add(engine.world, [mouseConstraint, ground1, ground2, carA, carB]);
 
     // Adicione labels aos carros durante a criação
-    carA.label = "Veículo A - 100g";
-    carB.label = "Veículo B - 25g";
+    carA.label = "Carro A - 100g";
+    carB.label = "Carro B - 25g";
 
     // Crie elementos HTML para as labels
     const labelCarA = document.createElement("div");
@@ -138,7 +138,7 @@ const Simulation3 = ({ speed, reset }) => {
         scene.current.contains(labelCarA)
       ) {
         // Remove the label for carA
-        scene.current.removeChild(labelCarA);
+        scene?.current?.removeChild(labelCarA);
       } else {
         labelCarA.style.left = `${carA.bodies[0].position.x - 25}px`;
       }
@@ -149,7 +149,7 @@ const Simulation3 = ({ speed, reset }) => {
         scene.current.contains(labelCarB)
       ) {
         // Remove the label for carB
-        scene.current.removeChild(labelCarB);
+        scene?.current?.removeChild(labelCarB);
       } else {
         labelCarB.style.left = `${carB.bodies[0].position.x - 25}px`;
       }

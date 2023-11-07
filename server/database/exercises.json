@@ -26,7 +26,8 @@
         "O período de oscilação do pêndulo é maior quando a amplitude dos movimentos é maior."
       ],
       "answer": "O período de oscilação do pêndulo não depende do comprimento da corda.",
-      "groupKey": "elementary-physics"
+      "groupKey": "elementary-physics",
+      "imgPath": "img/sim2.png"
     },
     "exercise03": {
       "key": "exercise03",

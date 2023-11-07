@@ -2,35 +2,30 @@
   "elementary-physics": {
     "key": "elementary-physics",
     "name": "Física - Ensino Fundamental",
-    "description": "Exercícios envolvendo pendulo e coisas básicas em física",
-    "image": "physics.jpeg"
+    "description": "Explore conceitos fundamentais da física em simulações 2D"
   },
   "highschool-physics": {
     "key": "highschool-physics",
     "name": "Física - Ensino Médio",
-    "image": "physics.jpeg",
-    "description": "Exercícios envolvendo conteúdos do ensino médio, com conteúdos envolvendo física mecânica e outras coisas",
+    "description": "Exercícios com conceitos de física aplicados em simulações 2D",
     "disabled": true
   },
   "college-physics": {
     "key": "college-physics",
     "name": "Física - Universidade",
-    "image": "physics.jpeg",
-    "description": "Exercícios envolvendo conteúdos do ensino superior, com funções de alta complexidade",
+    "description": "Exercícios envolvendo conteúdos avançados de física de nível universitário",
     "disabled": true
   },
-  "other-thing": {
-    "key": "other-thing",
-    "name": "Física - outra coisa",
-    "image": "physics.jpeg",
-    "description": "Exercícios com física 01",
+  "elementary-math": {
+    "key": "elementary-math",
+    "name": "Matemática - Ensino Fundamental",
+    "description": "Pratique conceitos fundamentais da matemática com exercícios práticos",
     "disabled": true
   },
-  "other-thing-2": {
-    "key": "other-thing-2",
-    "name": "Física - sei la",
-    "image": "physics.jpeg",
-    "description": "Exercícios teste",
+  "highschool-math": {
+    "key": "highschool-math",
+    "name": "Matemática - Ensino Médio",
+    "description": "Exercícios para práticar conceitos matemáticos da grade de ensino médio",
     "disabled": true
   }
 }
