@@ -3,16 +3,12 @@ import {
   Engine,
   Render,
   World,
-  Body,
   Bodies,
   Runner,
   Mouse,
   MouseConstraint,
   Constraint,
-  Composites,
   Composite,
-  Events,
-  Vector,
 } from "matter-js";
 
 const Simulation2 = ({ speed, reset }) => {
@@ -46,12 +42,12 @@ const Simulation2 = ({ speed, reset }) => {
     Render.run(render);
     Runner.run(runner, engine);
 
-    const ground = Bodies.rectangle(cw / 2, ch * 0.9, cw, 30, {
+    const ground = Bodies.rectangle(cw / 2, ch, cw, 20, {
       isStatic: true,
       friction: 0.8,
     });
+    Composite.add(engine.world, ground);
 
-    // add mouse control
     const mouse = Mouse.create(render.canvas);
     const mouseConstraint = MouseConstraint.create(engine, {
       mouse: mouse,
@@ -65,48 +61,35 @@ const Simulation2 = ({ speed, reset }) => {
     Composite.add(engine.world, mouseConstraint);
     render.mouse = mouse;
 
-    const group = Body.nextGroup(true);
-    const length = 200;
-    const width = 15;
-
-    const pendulum = Composites.stack(350, 160, 1, 1, -20, 0, function (x, y) {
-      return Bodies.rectangle(x, y, length, width, {
-        collisionFilter: { group: group },
-        frictionAir: 0.0025,
-        chamfer: 5,
-        render: {
-          lineWidth: 1,
-        },
-      });
+    const ballA = Bodies.circle(250, 400, 30, {
+      density: 0.04,
+      frictionAir: 0.005,
     });
-
-    Composites.chain(pendulum, 0.45, 0, -0.45, 0, {
-      stiffness: 0.9,
-      length: 0,
-      angularStiffness: 0.7,
-      render: {
-        strokeStyle: "#4a485b",
-      },
+    const ballConstraintA = Constraint.create({
+      pointA: { x: 250, y: 70 },
+      bodyB: ballA,
     });
+    Composite.add(engine.world, [ballA, ballConstraintA]);
 
-    Composite.add(
-      pendulum,
-      Constraint.create({
-        bodyB: pendulum.bodies[0],
-        pointB: { x: -length * 0.42, y: 0 },
-        pointA: {
-          x: pendulum.bodies[0].position.x - length * 0.42,
-          y: pendulum.bodies[0].position.y,
-        },
-        stiffness: 0.9,
-        length: 0,
-        render: {
-          strokeStyle: "#4a485b",
-        },
-      })
-    );
+    const ballB = Bodies.circle(250, 300, 30, {
+      density: 0.04,
+      frictionAir: 0.005,
+    });
+    const ballConstraintB = Constraint.create({
+      pointA: { x: 250, y: 70 },
+      bodyB: ballB,
+    });
+    Composite.add(engine.world, [ballB, ballConstraintB]);
 
-    World.add(engine.world, [mouseConstraint, ground, pendulum]);
+    const ballC = Bodies.circle(900, 400, 45, {
+      density: 0.08,
+      frictionAir: 0.005,
+    });
+    const ballConstraintC = Constraint.create({
+      pointA: { x: 900, y: 70 },
+      bodyB: ballC,
+    });
+    Composite.add(engine.world, [ballC, ballConstraintC]);
 
     return () => {
       World.clear(engine.world);
