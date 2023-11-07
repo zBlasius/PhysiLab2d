@@ -61,32 +61,50 @@ const Simulation2 = ({ speed, reset }) => {
     Composite.add(engine.world, mouseConstraint);
     render.mouse = mouse;
 
-    const ballA = Bodies.circle(250, 400, 30, {
+    const angleInRadiansA = (150 * Math.PI) / 180; // Converter 45 graus para radianos
+    const ropeLengthA = 280; // Distância vertical entre o ponto de ancoragem e o centro de massa
+
+    const ballXA = 300 + ropeLengthA * Math.cos(angleInRadiansA);
+    const ballYA = 70 + ropeLengthA * Math.sin(angleInRadiansA);
+
+    const ballA = Bodies.circle(ballXA, ballYA, 30, {
       density: 0.04,
       frictionAir: 0.005,
     });
     const ballConstraintA = Constraint.create({
-      pointA: { x: 250, y: 70 },
+      pointA: { x: 300, y: 70 },
       bodyB: ballA,
     });
     Composite.add(engine.world, [ballA, ballConstraintA]);
 
-    const ballB = Bodies.circle(250, 300, 30, {
+    const angleInRadiansB = (150 * Math.PI) / 180; // Converter 45 graus para radianos
+    const ropeLengthB = 140; // Distância vertical entre o ponto de ancoragem e o centro de massa
+
+    const ballXB = 300 + ropeLengthB * Math.cos(angleInRadiansB);
+    const ballYB = 70 + ropeLengthB * Math.sin(angleInRadiansB);
+
+    const ballB = Bodies.circle(ballXB, ballYB, 30, {
       density: 0.04,
       frictionAir: 0.005,
     });
     const ballConstraintB = Constraint.create({
-      pointA: { x: 250, y: 70 },
+      pointA: { x: 300, y: 70 },
       bodyB: ballB,
     });
     Composite.add(engine.world, [ballB, ballConstraintB]);
 
-    const ballC = Bodies.circle(900, 400, 45, {
+    const angleInRadiansC = (150 * Math.PI) / 180; // Converter 45 graus para radianos
+    const ropeLengthC = 280; // Distância vertical entre o ponto de ancoragem e o centro de massa
+
+    const ballXC = 950 + ropeLengthC * Math.cos(angleInRadiansC);
+    const ballYC = 70 + ropeLengthC * Math.sin(angleInRadiansC);
+
+    const ballC = Bodies.circle(ballXC, ballYC, 45, {
       density: 0.08,
       frictionAir: 0.005,
     });
     const ballConstraintC = Constraint.create({
-      pointA: { x: 900, y: 70 },
+      pointA: { x: 950, y: 70 },
       bodyB: ballC,
     });
     Composite.add(engine.world, [ballC, ballConstraintC]);
