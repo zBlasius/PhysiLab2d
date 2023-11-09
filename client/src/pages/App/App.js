@@ -21,6 +21,7 @@ function App() {
     api.get("get_all_info", { params: { teste: true } }).then((ret) => {
       setState({ ...ret.data });
     });
+    
   }, []);
 
   function toggleNavbar() {

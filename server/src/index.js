@@ -1,10 +1,10 @@
-import express from 'express';
-import cors from 'cors';
+const express = require('express');
+const cors = require('cors');
 const router = express();
 router.use(express.json());
 router.use(cors());
-import fs from "fs";
-
+const fs = require("fs");
+// const crud = require("./crud");
 
 router.get('/get_all_info', (req,res)=>{
   try {
