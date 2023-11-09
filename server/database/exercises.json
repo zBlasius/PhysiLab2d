@@ -12,7 +12,8 @@
       ],
       "answer": "Veículo A parou imediatamente, e Veículo B foi empurrado na direção oposta.",
       "completed": true,
-      "groupKey": "elementary-physics"
+      "groupKey": "elementary-physics",
+      "imgPath": "img/sim1.png"
     },
     "exercise02": {
       "key": "exercise02",
@@ -25,7 +26,8 @@
         "O período de oscilação do pêndulo é maior quando a amplitude dos movimentos é maior."
       ],
       "answer": "O período de oscilação do pêndulo não depende do comprimento da corda.",
-      "groupKey": "elementary-physics"
+      "groupKey": "elementary-physics",
+      "imgPath": "img/sim2.png"
     },
     "exercise03": {
       "key": "exercise03",
@@ -38,7 +40,8 @@
         "Depende do tamanho dos carros."
       ],
       "answer": "Carro B.",
-      "groupKey": "elementary-physics"
+      "groupKey": "elementary-physics",
+      "imgPath": "img/sim3.png"
     }
   }
 }

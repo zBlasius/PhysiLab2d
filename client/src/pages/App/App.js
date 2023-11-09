@@ -9,13 +9,15 @@ import { Context } from "../../store/Context";
 import appCtxDefaultValue from "../../store/Type";
 import api from "../../api/api";
 import Header from "../../components/Header";
+import { useLocation } from "react-router-dom";
 
 import "./reset.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [state, setState] = useState(appCtxDefaultValue.state);
-  const [collapsed, setCollapsed] = useState(true);
+  const location = useLocation();
+  const locationStr = location.pathname;
 
   useEffect(() => {
     api.get("get_all_info", { params: { teste: true } }).then((ret) => {
@@ -24,14 +26,12 @@ function App() {
     
   }, []);
 
-  function toggleNavbar() {
-    setCollapsed(!collapsed);
-  }
-
   return (
     <Context.Provider value={{ state, setState }}>
       <div>
-        <Header collapsed={collapsed} toggleNavbar={toggleNavbar} />
+        {locationStr == "/" || locationStr == "/login" ? null : (
+          <Header collapsed />
+        )}
         <Routes>
           <Route index element={<SubjectSelection />} />
 
