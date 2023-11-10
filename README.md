@@ -30,7 +30,11 @@ Documentos produzidos durante o projeto.
 ### Diagrama de caso de uso - [Lucid Chart](https://www.lucidchart.com)
 ![Diagrama de caso de uso](https://github.com/zBlasius/math_learning/assets/55204995/74ea6fa3-6457-4c41-b824-175003fbb5f0)
 ### Wireframes - [Figma](https://www.figma.com)
+Tela de login
 ![Tela de login](https://github.com/zBlasius/math_learning/assets/55204995/eb959ab1-384a-4713-81b1-ad598034cf51)
+Tela de seleção de matérias
 ![Tela de seleção de matérias](https://github.com/zBlasius/math_learning/assets/55204995/674fd433-f577-49f6-a663-367c3f6351f4)
+Tela de seleção de exercícios
 ![Tela de seleção de exercícios](https://github.com/zBlasius/math_learning/assets/55204995/7adf63d4-e290-4bd3-8cce-dde0d6eddaaa)
+Tela de exercício
 ![Tela de exercício](https://github.com/zBlasius/math_learning/assets/55204995/78476385-5d77-4952-9e83-e12374ccd20d)
