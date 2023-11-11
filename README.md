@@ -1,11 +1,10 @@
 # Repositório - MathLearning
-Este repositório contém o software **MathLearning**, em conjunto com suas documentações e artigo, este contendo informações sobre a problemática que o software visa resolver, **Aumentar engajamento de alunos nas matérias de física e matemática**. <br><br>
+Este repositório contém o software **MathLearning**, em conjunto com suas documentações e artigo, este contendo informações sobre a problemática que o software visa resolver, **Aumentar engajamento de alunos na matéria de física**. <br>
 
 O software foi desenvolvido como **trabalho de conclusão de curso (TCC)** do curso de **Engenharia de Software** do **Centro Universitário Católica de Santa Catarina, Campûs Jaraguá do Sul**.
 
 ## Artigo
 O [artigo](https://www.overleaf.com/read/khhvsthbhzpg) foi escrito e hospedado na plataforma Overleaf. <br> 
- - - - -
 **Autores:** Gustavo Blasius e Joel Marcos Graf. <br>
 **Título:** .... <br>
 **Instituição:** Centro Universitário Católica de Santa Catarina, Campûs Jaraguá do Sul. <br>
@@ -26,9 +25,17 @@ Para versionamento do projeto foi utilizado o git, com este [repositório](https
 Documentos produzidos durante o projeto.
 ### Links
 [Anotações do artigo](https://docs.google.com/document/d/1sumGe37jRPCV64vbBFA1mbVIQoFD4BSlK9QBvWubvqU) - Google Documents. <br>
-[Apresentação de qualificação do projeto](https://www.canva.com/design/DAFtfrO_XN0/KXTt9sT9QpFwzOCKuPE5yA/view?utm_content=DAFtfrO_XN0&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink) - Canva. <br>
-### Diagrama UML - [Miro](https://miro.com/app)
-![Diagrama UML](https://github.com/zBlasius/math_learning/assets/55204995/ce6abb6f-26c2-4670-bcae-f9dbaac4f850)
+[Apresentação de qualificação do projeto](https://www.canva.com/design/DAFuErf5dkI/jajhVm-mfcQabwzhhWYfwQ/edit?utm_content=DAFuErf5dkI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton) - Canva. <br>
+[Apresentação do projeto](https://www.canva.com/design/DAFzumN9vCg/mnxlR6VB0Tgsvu-Xw1Re4g/edit?utm_content=DAFzumN9vCg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton) - Canva. <br>
+[Vídeo demonstrando o software](google.com) - Loom. <br>
+### Diagrama de caso de uso - [Lucid Chart](https://www.lucidchart.com)
+![Diagrama de caso de uso](https://github.com/zBlasius/math_learning/assets/55204995/74ea6fa3-6457-4c41-b824-175003fbb5f0)
 ### Wireframes - [Figma](https://www.figma.com)
-![Visão do professor](https://github.com/zBlasius/math_learning/assets/55204995/f425f90d-fb33-4539-b561-9bfee3e3dd68)
-![Visão do aluno](https://github.com/zBlasius/math_learning/assets/55204995/2b3ea558-bf1e-48d9-96dd-9a9d40ff8b0b)
+Tela de login
+![Tela de login](https://github.com/zBlasius/math_learning/assets/55204995/eb959ab1-384a-4713-81b1-ad598034cf51)<br><br>
+Tela de seleção de matérias
+![Tela de seleção de matérias](https://github.com/zBlasius/math_learning/assets/55204995/674fd433-f577-49f6-a663-367c3f6351f4)<br><br>
+Tela de seleção de exercícios
+![Tela de seleção de exercícios](https://github.com/zBlasius/math_learning/assets/55204995/7adf63d4-e290-4bd3-8cce-dde0d6eddaaa)<br><br>
+Tela de exercício
+![Tela de exercício](https://github.com/zBlasius/math_learning/assets/55204995/78476385-5d77-4952-9e83-e12374ccd20d)<br><br>
