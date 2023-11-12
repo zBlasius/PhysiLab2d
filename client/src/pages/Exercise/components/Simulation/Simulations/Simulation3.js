@@ -72,20 +72,20 @@ const Simulation3 = ({ speed, reset }) => {
       0.00025
     );
 
-    const mouse = Mouse.create(render.canvas),
-      mouseConstraint = MouseConstraint.create(engine, {
-        mouse: mouse,
-        constraint: {
-          stiffness: 0.2,
-          render: {
-            visible: false,
-          },
-        },
-      });
+    // const mouse = Mouse.create(render.canvas),
+    //   mouseConstraint = MouseConstraint.create(engine, {
+    //     mouse: mouse,
+    //     constraint: {
+    //       stiffness: 0.2,
+    //       render: {
+    //         visible: false,
+    //       },
+    //     },
+    //   });
 
-    render.mouse = mouse;
+    // render.mouse = mouse;
 
-    World.add(engine.world, [mouseConstraint, ground1, ground2, carA, carB]);
+    World.add(engine.world, [ground1, ground2, carA, carB]);
 
     // Adicione labels aos carros durante a criação
     carA.label = "Carro A - 100g";
