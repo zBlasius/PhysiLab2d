@@ -22,8 +22,8 @@ function App() {
 
   return (
     <div>
-      {locationStr === "/login" || locationStr === "/home" ? null : (
-        <Header collapsed />
+      {locationStr === "/login" ? null : (
+        <Header collapsed showLogout={locationStr === "/home"}/>
       )}
       <Routes>
         <Route path="login" element={<Login />} />

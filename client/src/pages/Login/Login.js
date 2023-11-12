@@ -1,7 +1,11 @@
 import React, { useState, useContext } from "react";
 import { Container } from "reactstrap";
 import { Button, Form } from "react-bootstrap";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+} from "firebase/auth";
 import { Context } from "../../utils/Context";
 import { useNavigate } from "react-router-dom";
 
@@ -37,6 +41,31 @@ const LogIn = () => {
     }
   }
 
+  function register(event, email, password) {
+    event.preventDefault();
+
+    if (email && password) {
+      const auth = getAuth();
+
+      createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+
+          setState((prev) => ({ ...prev, user: user }));
+
+          alert("Sucesso!");
+          navigate("/home");
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          alert(`Erro (${errorCode}): ${errorMessage}`);
+        });
+    } else {
+      alert("Sem senha ou email");
+    }
+  }
+
   return (
     <Container
       style={{
@@ -51,7 +80,7 @@ const LogIn = () => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          width: "25vw",
+          width: "30vw",
           margin: "auto",
           padding: 18,
           boxShadow: "rgba(0, 0, 0, 0.34) 0px 4px 10px",
@@ -79,11 +108,23 @@ const LogIn = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" onClick={(e) => login(e, email, password)}>
-          Entrar
-        </Button>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          <Button variant="primary" onClick={(e) => login(e, email, password)}>
+            Entrar
+          </Button>
 
-        <Button variant="secondary">Cadastrar</Button>
+          <Button
+            variant="secondary"
+            onClick={(e) => register(e, email, password)}
+          >
+            Cadastrar
+          </Button>
+        </div>
       </Form>
     </Container>
   );
