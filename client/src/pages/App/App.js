@@ -44,50 +44,77 @@ function App() {
   return (
     <Context.Provider value={{ state, setState }}>
       <div>
-        {locationStr == "/" || locationStr == "/home" ? null : (
+        {locationStr === "/login" || locationStr === "/home" ? null : (
           <Header collapsed />
         )}
         <Routes>
-          <Route index element={<Login />} />
+          <Route path="login" element={<Login />} />
 
-          <Route path="home" element={<SubjectSelection />} />
+          <Route
+            path="home"
+            element={
+              state.user ? <SubjectSelection /> : <Navigate to={"/login"} />
+            }
+          />
+
           <Route
             path="home/elementary-physics"
             element={
-              <ExerciseSelection
-                subject={state.subjectsData["elementary-physics"]}
-              />
+              state.user ? (
+                <ExerciseSelection
+                  subject={state.subjectsData["elementary-physics"]}
+                />
+              ) : (
+                <Navigate to={"/login"} />
+              )
             }
           />
           <Route
             path="home/elementary-physics/exercise01"
             element={
-              <Exercise
-                exercise={
-                  state.exerciseData["elementary-physics"]["exercise01"]
-                }
-              />
+              state.user ? (
+                <Exercise
+                  exercise={
+                    state.exerciseData["elementary-physics"]["exercise01"]
+                  }
+                />
+              ) : (
+                <Navigate to={"/login"} />
+              )
             }
           />
           <Route
             path="home/elementary-physics/exercise02"
             element={
-              <Exercise
-                exercise={
-                  state.exerciseData["elementary-physics"]["exercise02"]
-                }
-              />
+              state.user ? (
+                <Exercise
+                  exercise={
+                    state.exerciseData["elementary-physics"]["exercise02"]
+                  }
+                />
+              ) : (
+                <Navigate to={"/login"} />
+              )
             }
           />
           <Route
             path="home/elementary-physics/exercise03"
             element={
-              <Exercise
-                exercise={
-                  state.exerciseData["elementary-physics"]["exercise03"]
-                }
-              />
+              state.user ? (
+                <Exercise
+                  exercise={
+                    state.exerciseData["elementary-physics"]["exercise03"]
+                  }
+                />
+              ) : (
+                <Navigate to={"/login"} />
+              )
             }
+          />
+
+          <Route
+            path="*"
+            element={<Navigate to={state.user ? "/home" : "/login"} />}
           />
         </Routes>
       </div>

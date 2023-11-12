@@ -12,24 +12,25 @@ const LogIn = () => {
   const { state, setState } = useContext(Context);
   const navigate = useNavigate();
 
-  function login(email, password) {
+  function login(event, email, password) {
+    event.preventDefault();
+
     if (email && password) {
       const auth = getAuth();
 
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
           const user = userCredential.user;
-          setState((e) => {
-            return { ...e, user: user };
-          });
 
-          alert("sucesso!");
+          setState((prev) => ({ ...prev, user: user }));
+
+          alert("Sucesso!");
           navigate("/home");
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          alert(`erro (${errorCode}): ${errorMessage}`);
+          alert(`Erro (${errorCode}): ${errorMessage}`);
         });
     } else {
       alert("Sem senha ou email");
@@ -78,7 +79,7 @@ const LogIn = () => {
           />
         </Form.Group>
 
-        <Button variant="primary" onClick={() => login(email, password)}>
+        <Button variant="primary" onClick={(e) => login(e, email, password)}>
           Entrar
         </Button>
 
