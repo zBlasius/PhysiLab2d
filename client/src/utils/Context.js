@@ -21,7 +21,6 @@ export const ContextProvider = ({ children }) => {
           ],
           answer:
             "Veículo A parou imediatamente, e Veículo B foi empurrado na direção oposta.",
-          completed: true,
           groupKey: "elementary-physics",
           imgPath: "/img/sim1.png",
         },
@@ -105,8 +104,9 @@ export const ContextProvider = ({ children }) => {
       appId: "1:987900479339:web:2d7ff476b0ae97d445ee2e",
       measurementId: "G-7KCBKTM6K7",
     };
+    
     const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app)
+    const db = getFirestore(app);
 
     return {
       app: app,

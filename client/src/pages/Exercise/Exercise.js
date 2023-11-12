@@ -7,6 +7,7 @@ const Exercise = ({ exercise }) => {
   const navigate = useNavigate();
 
   function onSubmitAnswer(submitedAnswer) {
+    // TODO: Atualizar no banco
     // if (submitedAnswer == exercise.answer) {
     //   let auxExerciseData = state.exerciseData;
     //   auxExerciseData[exercise.groupKey][exercise.key].completed = true;

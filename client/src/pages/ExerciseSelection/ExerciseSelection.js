@@ -13,7 +13,14 @@ const ExerciseSelection = ({ subject }) => {
 
   useEffect(() => {
     if (subject?.key && !exercises) {
-      setExercises(Object.values(state.exerciseData[subject.key]) ?? []);
+      // TODO:
+      Crud.listarUsuario(state.db, state.user.uid).then((exercisesProgress) => {
+        console.log("exercisesProgress: ", exercisesProgress)
+
+        const exerciseData = Object.values(state.exerciseData[subject.key]);
+        console.log("exerciseData: ", exerciseData)
+        setExercises(exerciseData ?? []);
+      });
     }
   }, [subject, exercises]);
 

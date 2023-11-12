@@ -3,6 +3,7 @@ import {
   addDoc,
   getDoc,
   doc,
+  updateDoc,
   query,
   where,
   getDocs,
@@ -41,9 +42,37 @@ export const Crud = {
         docs.push(doc.data());
       });
 
-      return docs;
+      return docs[0];
     } catch (error) {
       console.error("Erro ao ´listar usuário: ", error);
+    }
+  },
+
+  // TODO: testar
+  atualizarUsuario: async (db, idUsuario, newData) => {
+    try {
+      const q = query(
+        collection(db, "users"),
+        where("idUser", "==", idUsuario)
+      );
+
+      const querySnapshot = await getDocs(q);
+      let docRef = null;
+      querySnapshot.forEach((doc) => {
+        docRef = doc.ref;
+      });
+
+      if (docRef) {
+        const res = await updateDoc(docRef, newData);
+        console.log("RESS: ", res);
+        return res;
+      } else {
+        console.error("Usuário não encontrado");
+        return null;
+      }
+    } catch (error) {
+      console.error("Erro ao atualizar usuário: ", error);
+      throw error;
     }
   },
 };
