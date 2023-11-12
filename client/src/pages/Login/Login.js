@@ -8,6 +8,7 @@ import {
 } from "firebase/auth";
 import { Context } from "../../utils/Context";
 import { useNavigate } from "react-router-dom";
+import { Crud } from "../../utils/Crud";
 
 const LogIn = () => {
   const [email, setEmail] = useState("");
@@ -56,6 +57,7 @@ const LogIn = () => {
           const user = userCredential.user;
 
           setState((prev) => ({ ...prev, user: user }));
+          Crud.criarUsuario(state.db, user.uid);
 
           alert("Sucesso!");
           navigate("/home");

@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import { initializeApp } from "firebase/app";
+import { getFirestore } from "@firebase/firestore";
 
 export const Context = createContext();
 
@@ -105,9 +106,11 @@ export const ContextProvider = ({ children }) => {
       measurementId: "G-7KCBKTM6K7",
     };
     const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app)
 
     return {
       app: app,
+      db: db,
       user: null,
       subjectsData: subjectData,
       exerciseData: exercisesData,
