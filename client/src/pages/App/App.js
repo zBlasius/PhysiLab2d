@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import SubjectSelection from "../SubjectSelection/SubjectSelection";
 import ExerciseSelection from "../ExerciseSelection/ExerciseSelection";
 import Exercise from "../Exercise/Exercise";
