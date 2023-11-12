@@ -21,8 +21,16 @@ function Header() {
   return (
     <Navbar className="bg-dark navbar-brand" style={{ margin: 0 }}>
       <Container>
-        <Navbar.Brand href="/">
-          <span className="text-white">Math Learning</span>
+        <Navbar.Brand>
+          <div
+            onClick={() => navigate("/home")}
+            style={{
+              userSelect: "none",
+              cursor: "pointer",
+            }}
+          >
+            <span className="text-white">Math Learning</span>
+          </div>
         </Navbar.Brand>
 
         <div style={{ right: 0 }}>
