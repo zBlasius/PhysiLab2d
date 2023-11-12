@@ -18,6 +18,26 @@ const LogIn = () => {
   const { state, setState } = useContext(Context);
   const navigate = useNavigate();
 
+  async function updateContext(uid) {
+
+    const userDataRes = await Crud.listarUsuario(state.db, uid);
+    const exerciseData = Object.values(state.exerciseData["elementary-physics"]);
+
+    const exerciseDataWithProgress = exerciseData.map((d) => {
+      const exerciseProgress = userDataRes.exercises[d.key];
+
+      if (exerciseProgress) {
+        d.completed = true;
+      }
+
+      return d;
+    });
+    let allExercises = state.exerciseData;
+    allExercises["elementary-physics"] = exerciseDataWithProgress;
+    setState({ ...state, exerciseData: allExercises })
+
+  }
+
   function login(event, email, password) {
     event.preventDefault();
 
@@ -26,12 +46,11 @@ const LogIn = () => {
       setLoading(true);
 
       signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
+        .then(async (userCredential) => {
           const user = userCredential.user;
 
+          await updateContext(user.uid)
           setState((prev) => ({ ...prev, user: user }));
-
-          alert("Sucesso!");
           navigate("/home");
         })
         .catch((error) => {
