@@ -13,7 +13,7 @@ const exercisesData = {
       "answer": "Veículo A parou imediatamente, e Veículo B foi empurrado na direção oposta.",
       "completed": true,
       "groupKey": "elementary-physics",
-      "imgPath": "img/sim1.png"
+      "imgPath": "/img/sim1.png"
     },
     "exercise02": {
       "key": "exercise02",
@@ -27,7 +27,7 @@ const exercisesData = {
       ],
       "answer": "O período de oscilação do pêndulo não depende do comprimento da corda.",
       "groupKey": "elementary-physics",
-      "imgPath": "img/sim2.png"
+      "imgPath": "/img/sim2.png"
     },
     "exercise03": {
       "key": "exercise03",
@@ -41,7 +41,7 @@ const exercisesData = {
       ],
       "answer": "Carro B.",
       "groupKey": "elementary-physics",
-      "imgPath": "img/sim3.png"
+      "imgPath": "/img/sim3.png"
     }
   }
 };

@@ -64,7 +64,7 @@ const Album = ({ listSubject }) => {
                         outline
                         color={item.disabled ? "secondary" : "primary"}
                         size="sm"
-                        onClick={() => navigate("/" + item.key)}
+                        onClick={() => navigate("/home/" + item.key)}
                         disabled={item.disabled}
                         style={{ width: "40%", marginTop: 8 }}
                       >

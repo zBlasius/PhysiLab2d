@@ -44,15 +44,15 @@ function App() {
   return (
     <Context.Provider value={{ state, setState }}>
       <div>
-        {locationStr == "/" || locationStr == "/login" ? null : (
+        {locationStr == "/" || locationStr == "/home" ? null : (
           <Header collapsed />
         )}
         <Routes>
-          <Route index element={<SubjectSelection />} />
+          <Route index element={<Login />} />
 
-          <Route path="login" element={<Login />} />
+          <Route path="home" element={<SubjectSelection />} />
           <Route
-            path="elementary-physics"
+            path="home/elementary-physics"
             element={
               <ExerciseSelection
                 subject={state.subjectsData["elementary-physics"]}
@@ -60,7 +60,7 @@ function App() {
             }
           />
           <Route
-            path="elementary-physics/exercise01"
+            path="home/elementary-physics/exercise01"
             element={
               <Exercise
                 exercise={
@@ -70,7 +70,7 @@ function App() {
             }
           />
           <Route
-            path="elementary-physics/exercise02"
+            path="home/elementary-physics/exercise02"
             element={
               <Exercise
                 exercise={
@@ -80,7 +80,7 @@ function App() {
             }
           />
           <Route
-            path="elementary-physics/exercise03"
+            path="home/elementary-physics/exercise03"
             element={
               <Exercise
                 exercise={

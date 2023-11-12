@@ -24,7 +24,7 @@ const LogIn = () => {
           });
 
           alert("sucesso!");
-          navigate("/");
+          navigate("/home");
         })
         .catch((error) => {
           const errorCode = error.code;

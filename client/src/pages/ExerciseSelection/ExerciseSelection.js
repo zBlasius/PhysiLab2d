@@ -22,7 +22,7 @@ const ExerciseSelection = ({ subject }) => {
           <a
             href="#"
             className="btn bg-success stretched-link text-white"
-            onClick={() => navigate("/" + subject.key + "/" + exercise.key)}
+            onClick={() => navigate("/home/" + subject.key + "/" + exercise.key)}
           >
             Concluído
           </a>
@@ -34,7 +34,7 @@ const ExerciseSelection = ({ subject }) => {
           <a
             href="#"
             className="btn btn-primary stretched-link"
-            onClick={() => navigate("/" + subject.key + "/" + exercise.key)}
+            onClick={() => navigate("/home/" + subject.key + "/" + exercise.key)}
           >
             Abrir
           </a>
