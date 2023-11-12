@@ -86,8 +86,8 @@ export const ContextProvider = ({ children }) => {
           "Exercícios para práticar conceitos matemáticos da grade de ensino médio",
         disabled: true,
       },
-      "highschool-math": {
-        key: "highschool-math",
+      "highschool-math2": {
+        key: "highschool-math2",
         name: "Matemática - Ensino Universitário",
         description:
           "Exercícios para práticar conceitos matemáticos avançados",
