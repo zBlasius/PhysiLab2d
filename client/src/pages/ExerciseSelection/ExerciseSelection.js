@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router";
-import { Context } from "../../store/Context";
+import { Context } from "../../utils/Context";
 import "./index.css";
 
 const ExerciseSelection = ({ subject }) => {
@@ -23,7 +23,9 @@ const ExerciseSelection = ({ subject }) => {
           <a
             href="#"
             className="btn bg-success stretched-link text-white"
-            onClick={() => navigate("/home/" + subject.key + "/" + exercise.key)}
+            onClick={() =>
+              navigate("/home/" + subject.key + "/" + exercise.key)
+            }
           >
             Concluído
           </a>
@@ -35,7 +37,9 @@ const ExerciseSelection = ({ subject }) => {
           <a
             href="#"
             className="btn btn-primary stretched-link"
-            onClick={() => navigate("/home/" + subject.key + "/" + exercise.key)}
+            onClick={() =>
+              navigate("/home/" + subject.key + "/" + exercise.key)
+            }
           >
             Abrir
           </a>
