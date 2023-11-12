@@ -1,84 +1,87 @@
-import React, { useContext, useState } from "react";
-import { Form, Button } from "react-bootstrap";
-import logoImage from "./crystal-ball.png";
-import { useNavigate } from "react-router";
-import { Context } from "../../store/Context";
+import React, { useState } from "react";
+import { Container } from "reactstrap";
+import { Button, Form } from "react-bootstrap";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 import "./login.css";
 
-const SignInForm = () => {
+const LogIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const context = useContext(Context);
-  const navigate = useNavigate();
 
-  const singIn = () => {
-    navigate("/singIn");
-  };
+  function login(email, password) {
+    if (email && password) {
+      const auth = getAuth();
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
+      signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log("VAPO: ", user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+          console.log("erro");
+        });
+    } else {
+      // Sem email ou senha
+      console.log("erroAAAAA");
+    }
+  }
 
   return (
-    <div className="form-signin w-100 m-auto bg-body-tertiary">
-      <Form onSubmit={handleSubmit}>
-        <img className="mb-4" src={logoImage} alt="" width="64" height="57" />
-        <h1 className="h3 mb-3 fw-normal">Please sign in</h1>
+    <Container
+      style={{
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+      }}
+    >
+      <Form
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          width: "25vw",
+          margin: "auto",
+          padding: 18,
+          boxShadow: "rgba(0, 0, 0, 0.34) 0px 4px 10px",
+        }}
+      >
+        <h2 className="jumbotron-heading mb-4">Login</h2>
 
-        <div className="form-floating">
-          <input
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>E-mail</Form.Label>
+          <Form.Control
             type="email"
-            className="form-control"
-            id="floatingInput"
-            placeholder="name@example.com"
+            placeholder="exemplo@email.com"
             value={email}
-            onChange={handleEmailChange}
+            onChange={(e) => setEmail(e.target.value)}
           />
-          <label htmlFor="floatingInput">Email address</label>
-        </div>
+        </Form.Group>
 
-        <div className="form-floating">
-          <input
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Senha</Form.Label>
+          <Form.Control
             type="password"
-            className="form-control"
-            id="floatingPassword"
-            placeholder="Password"
+            placeholder="senha"
             value={password}
-            onChange={handlePasswordChange}
+            onChange={(e) => setPassword(e.target.value)}
           />
-          <label htmlFor="floatingPassword">Password</label>
-        </div>
+        </Form.Group>
 
-        <div className="form-check text-start my-3">
-          <input
-            className="form-check-input"
-            type="checkbox"
-            value="remember-me"
-            id="flexCheckDefault"
-          />
-          <label className="form-check-label" htmlFor="flexCheckDefault">
-            Remember me
-          </label>
-        </div>
-        <Button
-          className="btn btn-primary w-100 py-2"
-          type="submit"
-          onClick={() => singIn()}
-        >
-          Sign in
+        <Button variant="primary" onClick={() => login(email, password)}>
+          Entrar
         </Button>
-        <p className="mt-5 mb-3 text-body-secondary">Math learning</p>
+
+        <Button variant="secondary">Cadastrar</Button>
       </Form>
-    </div>
+    </Container>
   );
 };
 
-export default SignInForm;
+export default LogIn;

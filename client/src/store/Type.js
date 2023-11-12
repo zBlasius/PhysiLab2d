@@ -1,5 +1,6 @@
 const appCtxDefaultValue = {
   state: {
+    app: null,
     subjectsData: {
       "elementary-physics": {
         key: "elementary-physics",

@@ -4,18 +4,36 @@ import SubjectSelection from "../SubjectSelection/SubjectSelection";
 import ExerciseSelection from "../ExerciseSelection/ExerciseSelection";
 import Exercise from "../Exercise/Exercise";
 import Login from "../Login/Login";
-import SingIn from "../SingIn/SingIn";
 import { Context } from "../../store/Context";
 import appCtxDefaultValue from "../../store/Type";
 import api from "../../api/api";
 import Header from "../../components/Header";
 import { useLocation } from "react-router-dom";
+import { initializeApp } from "firebase/app";
 
 import "./reset.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const [state, setState] = useState(appCtxDefaultValue.state);
+  const [state, setState] = useState(() => {
+    const firebaseConfig = {
+      apiKey: "AIzaSyAkXdqdM578fZo8icjQT0m5fvp6BXtGwfo",
+      authDomain: "math-learning-5e0f0.firebaseapp.com",
+      projectId: "math-learning-5e0f0",
+      storageBucket: "math-learning-5e0f0.appspot.com",
+      messagingSenderId: "987900479339",
+      appId: "1:987900479339:web:2d7ff476b0ae97d445ee2e",
+      measurementId: "G-7KCBKTM6K7",
+    };
+
+    const app = initializeApp(firebaseConfig);
+
+    const obj = appCtxDefaultValue.state;
+    obj.app = app;
+
+    return obj;
+  });
+
   const location = useLocation();
   const locationStr = location.pathname;
 
@@ -23,7 +41,6 @@ function App() {
     api.get("get_all_info", { params: { teste: true } }).then((ret) => {
       setState({ ...ret.data });
     });
-    
   }, []);
 
   return (
@@ -74,7 +91,6 @@ function App() {
               />
             }
           />
-          <Route path="singIn" element={<SingIn />} />
         </Routes>
       </div>
     </Context.Provider>
