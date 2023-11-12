@@ -35,7 +35,7 @@ function Header() {
               cursor: "pointer",
             }}
           >
-            <span className="text-white">Math Learning</span>
+            <span className="text-white">PhysiLab2d</span>
           </div>
         </Navbar.Brand>
 
