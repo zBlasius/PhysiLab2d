@@ -13,26 +13,23 @@ const ExerciseSelection = ({ subject }) => {
 
   useEffect(() => {
     if (subject?.key && !exercises) {
-      // TODO:
-      Crud.listarUsuario(state.db, state.user.uid).then((exercisesProgress) => {
-        console.log("exercisesProgress: ", exercisesProgress)
-
+      Crud.listarUsuario(state.db, state.user.uid).then((userDataRes) => {
         const exerciseData = Object.values(state.exerciseData[subject.key]);
-        console.log("exerciseData: ", exerciseData)
-        setExercises(exerciseData ?? []);
+
+        const exerciseDataWithProgress = exerciseData.map((d) => {
+          const exerciseProgress = userDataRes.exercises[d.key];
+
+          if (exerciseProgress) {
+            d.completed = true;
+          }
+
+          return d;
+        });
+
+        setExercises(exerciseDataWithProgress ?? []);
       });
     }
   }, [subject, exercises]);
-
-  useEffect(() => {
-    Crud.listarUsuario(state.db, state.user.uid)
-      .then((res) => {
-        console.log("RES: ", res);
-      })
-      .catch((err) => {
-        alert("erro: ", err);
-      });
-  }, []);
 
   function getCurrentButton(exercise) {
     if (exercise.completed) {
