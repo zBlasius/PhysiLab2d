@@ -10,13 +10,12 @@ import {
   Container,
   Row,
 } from "reactstrap";
-import { Context } from "../store/Context";
+import { Context } from "../utils/Context";
 import helper from "../utils/helper";
 
 const Album = ({ listSubject }) => {
   const navigate = useNavigate();
-  const context = useContext(Context);
-  const { state, setState } = context;
+  const { state } = useContext(Context);
 
   function getPercent(keySubject) {
     // FIXME: Fix

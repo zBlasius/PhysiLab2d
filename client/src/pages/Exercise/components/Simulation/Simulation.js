@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import ControlBar from "./components/ControlBar";
 import Simulation0 from "./Simulations/Simulation0";
 import Simulation1 from "./Simulations/Simulation1";

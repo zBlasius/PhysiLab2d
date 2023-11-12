@@ -1,12 +1,10 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
-import { Context } from "../../store/Context";
 import { Container } from "reactstrap";
 import Album from "../../components/Album";
+import { Context } from "../../utils/Context";
 
 const SubjectSelection = () => {
-  const context = useContext(Context);
-  const { state, setState } = context;
+  const { state } = useContext(Context);
 
   return (
     <main role="main">

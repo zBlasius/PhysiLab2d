@@ -1,24 +1,20 @@
-import React, { useContext } from "react";
+import React from "react";
 import Question from "./components/Question/Question";
 import Simulation from "./components/Simulation/Simulation";
 import { useNavigate } from "react-router";
-import { Context } from "../../store/Context";
 
 const Exercise = ({ exercise }) => {
   const navigate = useNavigate();
 
-  const context = useContext(Context);
-  const { state, setState } = context;
-
   function onSubmitAnswer(submitedAnswer) {
-    if (submitedAnswer == exercise.answer) {
-      let auxExerciseData = state.exerciseData;
-      auxExerciseData[exercise.groupKey][exercise.key].completed = true;
-      setState({ ...state, exerciseData: auxExerciseData });
-      // api.post("update", { auxExerciseData }).then((_) => {
-      //   navigate("/elementary-physics");
-      // });
-    }
+    // if (submitedAnswer == exercise.answer) {
+    //   let auxExerciseData = state.exerciseData;
+    //   auxExerciseData[exercise.groupKey][exercise.key].completed = true;
+    //   setState({ ...state, exerciseData: auxExerciseData });
+    //   // api.post("update", { auxExerciseData }).then((_) => {
+    //   //   navigate("/elementary-physics");
+    //   // });
+    // }
   }
 
   return (

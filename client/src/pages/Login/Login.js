@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { Container } from "reactstrap";
 import { Button, Form } from "react-bootstrap";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { Context } from "../../store/Context";
+import { Context } from "../../utils/Context";
 import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {

@@ -5,9 +5,10 @@ import "./index.css";
 
 const ExerciseSelection = ({ subject }) => {
   const navigate = useNavigate();
-  const context = useContext(Context);
-  const { state, setState } = context;
+
   const [exercises, setExercises] = useState(null);
+
+  const { state, setState } = useContext(Context);
 
   useEffect(() => {
     if (subject?.key && !exercises) {
