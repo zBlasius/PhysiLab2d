@@ -6,7 +6,7 @@ O software foi desenvolvido como **trabalho de conclusão de curso (TCC)** do cu
 ## Artigo
 O [artigo](https://www.overleaf.com/read/khhvsthbhzpg) foi escrito e hospedado na plataforma Overleaf. <br> 
 **Autores:** Gustavo Blasius e Joel Marcos Graf. <br>
-**Título:** .... <br>
+**Título:** Desenvolvimento de uma plataforma online para o ensino de física: Integrando simulações interativas no processo de aprendizagem <br>
 **Instituição:** Centro Universitário Católica de Santa Catarina, Campûs Jaraguá do Sul. <br>
 **Curso:** Engenharia de Software. <br>
 **Orientadora:** Tathiana Duarte do Amarante. <br>
