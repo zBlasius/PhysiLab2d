@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import SubjectSelection from "../SubjectSelection/SubjectSelection";
 import ExerciseSelection from "../ExerciseSelection/ExerciseSelection";
 import Exercise from "../Exercise/Exercise";
@@ -8,8 +8,8 @@ import { Context } from "../../store/Context";
 import appCtxDefaultValue from "../../store/Type";
 import api from "../../api/api";
 import Header from "../../components/Header";
-import { useLocation } from "react-router-dom";
 import { initializeApp } from "firebase/app";
+import { getAuth, signOut, signInWithEmailAndPassword } from "firebase/auth";
 
 import "./reset.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -38,6 +38,15 @@ function App() {
   const locationStr = location.pathname;
 
   useEffect(() => {
+    const auth = getAuth();
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        // An error happened.
+      });
+
     api.get("get_all_info", { params: { teste: true } }).then((ret) => {
       setState({ ...ret.data });
     });

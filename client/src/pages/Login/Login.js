@@ -3,8 +3,6 @@ import { Container } from "reactstrap";
 import { Button, Form } from "react-bootstrap";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
-import "./login.css";
-
 const LogIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +15,7 @@ const LogIn = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log("VAPO: ", user);
+          console.log("VAPO: ", );
           // ...
         })
         .catch((error) => {
