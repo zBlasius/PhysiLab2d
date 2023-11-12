@@ -3,7 +3,6 @@ import Question from "./components/Question/Question";
 import Simulation from "./components/Simulation/Simulation";
 import { useNavigate } from "react-router";
 import { Context } from "../../store/Context";
-import api from "../../api/api";
 
 const Exercise = ({ exercise }) => {
   const navigate = useNavigate();
@@ -16,9 +15,9 @@ const Exercise = ({ exercise }) => {
       let auxExerciseData = state.exerciseData;
       auxExerciseData[exercise.groupKey][exercise.key].completed = true;
       setState({ ...state, exerciseData: auxExerciseData });
-      api.post("update", { auxExerciseData }).then((_) => {
-        navigate("/elementary-physics");
-      });
+      // api.post("update", { auxExerciseData }).then((_) => {
+      //   navigate("/elementary-physics");
+      // });
     }
   }
 

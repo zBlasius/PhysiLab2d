@@ -55,7 +55,7 @@ const ExerciseSelection = ({ subject }) => {
             <div className="d-flex flex-column flex-lg-row">
               <img
                 src={exercise.imgPath}
-                class="rounded-3"
+                className="rounded-3"
                 style={{ width: 56, height: 56, marginRight: 12 }}
                 alt="Imagem do exercício"
               />

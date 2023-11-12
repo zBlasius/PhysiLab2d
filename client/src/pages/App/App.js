@@ -6,7 +6,6 @@ import Exercise from "../Exercise/Exercise";
 import Login from "../Login/Login";
 import { Context } from "../../store/Context";
 import appCtxDefaultValue from "../../store/Type";
-import api from "../../api/api";
 import Header from "../../components/Header";
 import { initializeApp } from "firebase/app";
 
@@ -19,27 +18,27 @@ function App() {
   const location = useLocation();
   const locationStr = location.pathname;
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAkXdqdM578fZo8icjQT0m5fvp6BXtGwfo",
-    authDomain: "math-learning-5e0f0.firebaseapp.com",
-    projectId: "math-learning-5e0f0",
-    storageBucket: "math-learning-5e0f0.appspot.com",
-    messagingSenderId: "987900479339",
-    appId: "1:987900479339:web:2d7ff476b0ae97d445ee2e",
-    measurementId: "G-7KCBKTM6K7",
-  };
-
-  const app = initializeApp(firebaseConfig);
-
-  const obj = appCtxDefaultValue.state;
-  obj.app = app;
-
-  setState(obj);
-
   useEffect(() => {
-    api.get("get_all_info", { params: { teste: true } }).then((ret) => {
-      setState({ ...ret.data });
-    });
+    const firebaseConfig = {
+      apiKey: "AIzaSyAkXdqdM578fZo8icjQT0m5fvp6BXtGwfo",
+      authDomain: "math-learning-5e0f0.firebaseapp.com",
+      projectId: "math-learning-5e0f0",
+      storageBucket: "math-learning-5e0f0.appspot.com",
+      messagingSenderId: "987900479339",
+      appId: "1:987900479339:web:2d7ff476b0ae97d445ee2e",
+      measurementId: "G-7KCBKTM6K7",
+    };
+
+    const app = initializeApp(firebaseConfig);
+
+    const obj = appCtxDefaultValue.state;
+    obj.app = app;
+
+    setState(obj);
+
+    // api.get("get_all_info", { params: { teste: true } }).then((ret) => {
+    //   setState({ ...ret.data });
+    // });
   }, []);
 
   return (
