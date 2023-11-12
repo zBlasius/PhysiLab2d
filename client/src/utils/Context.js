@@ -61,16 +61,9 @@ export const ContextProvider = ({ children }) => {
     const subjectData = {
       "elementary-physics": {
         key: "elementary-physics",
-        name: "Física - Ensino Fundamental",
-        description:
-          "Explore conceitos fundamentais da física em simulações 2D",
-      },
-      "highschool-physics": {
-        key: "highschool-physics",
         name: "Física - Ensino Médio",
         description:
           "Exercícios com conceitos de física aplicados em simulações 2D",
-        disabled: true,
       },
       "college-physics": {
         key: "college-physics",
@@ -91,6 +84,13 @@ export const ContextProvider = ({ children }) => {
         name: "Matemática - Ensino Médio",
         description:
           "Exercícios para práticar conceitos matemáticos da grade de ensino médio",
+        disabled: true,
+      },
+      "highschool-math": {
+        key: "highschool-math",
+        name: "Matemática - Ensino Universitário",
+        description:
+          "Exercícios para práticar conceitos matemáticos avançados",
         disabled: true,
       },
     };
