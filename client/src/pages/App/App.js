@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import SubjectSelection from "../SubjectSelection/SubjectSelection";
 import ExerciseSelection from "../ExerciseSelection/ExerciseSelection";
@@ -9,44 +9,34 @@ import appCtxDefaultValue from "../../store/Type";
 import api from "../../api/api";
 import Header from "../../components/Header";
 import { initializeApp } from "firebase/app";
-import { getAuth, signOut, signInWithEmailAndPassword } from "firebase/auth";
 
 import "./reset.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const [state, setState] = useState(() => {
-    const firebaseConfig = {
-      apiKey: "AIzaSyAkXdqdM578fZo8icjQT0m5fvp6BXtGwfo",
-      authDomain: "math-learning-5e0f0.firebaseapp.com",
-      projectId: "math-learning-5e0f0",
-      storageBucket: "math-learning-5e0f0.appspot.com",
-      messagingSenderId: "987900479339",
-      appId: "1:987900479339:web:2d7ff476b0ae97d445ee2e",
-      measurementId: "G-7KCBKTM6K7",
-    };
-
-    const app = initializeApp(firebaseConfig);
-
-    const obj = appCtxDefaultValue.state;
-    obj.app = app;
-
-    return obj;
-  });
+  const { state, setState } = useContext(Context);
 
   const location = useLocation();
   const locationStr = location.pathname;
 
-  useEffect(() => {
-    const auth = getAuth();
-    signOut(auth)
-      .then(() => {
-        // Sign-out successful.
-      })
-      .catch((error) => {
-        // An error happened.
-      });
+  const firebaseConfig = {
+    apiKey: "AIzaSyAkXdqdM578fZo8icjQT0m5fvp6BXtGwfo",
+    authDomain: "math-learning-5e0f0.firebaseapp.com",
+    projectId: "math-learning-5e0f0",
+    storageBucket: "math-learning-5e0f0.appspot.com",
+    messagingSenderId: "987900479339",
+    appId: "1:987900479339:web:2d7ff476b0ae97d445ee2e",
+    measurementId: "G-7KCBKTM6K7",
+  };
 
+  const app = initializeApp(firebaseConfig);
+
+  const obj = appCtxDefaultValue.state;
+  obj.app = app;
+
+  setState(obj);
+
+  useEffect(() => {
     api.get("get_all_info", { params: { teste: true } }).then((ret) => {
       setState({ ...ret.data });
     });

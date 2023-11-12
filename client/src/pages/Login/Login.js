@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Container } from "reactstrap";
 import { Button, Form } from "react-bootstrap";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { Context } from "../../store/Context";
+import { useNavigate } from "react-router-dom";
 
 const LogIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const { state, setState } = useContext(Context);
+  const navigate = useNavigate();
 
   function login(email, password) {
     if (email && password) {
@@ -13,20 +18,21 @@ const LogIn = () => {
 
       signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-          // Signed in
           const user = userCredential.user;
-          console.log("VAPO: ", );
-          // ...
+          setState((e) => {
+            return { ...e, user: user };
+          });
+
+          alert("sucesso!");
+          navigate("/");
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-
-          console.log("erro");
+          alert(`erro (${errorCode}): ${errorMessage}`);
         });
     } else {
-      // Sem email ou senha
-      console.log("erroAAAAA");
+      alert("Sem senha ou email");
     }
   }
 

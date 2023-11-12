@@ -1,6 +1,4 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Container } from "react-bootstrap";
-import ExerciseCard from "./components/ExerciseCard";
 import { useNavigate } from "react-router";
 import { Context } from "../../store/Context";
 import "./index.css";

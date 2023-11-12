@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { Engine, Render, World, Bodies, Runner, Events } from "matter-js";
+import { Engine, Render, World, Bodies, Runner } from "matter-js";
 
 const RenderBox = ({ speed }) => {
   const scene = useRef(null);
