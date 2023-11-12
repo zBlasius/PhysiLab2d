@@ -16,14 +16,10 @@ function App() {
 
   const { state } = useContext(Context);
 
-  // api.get("get_all_info", { params: { teste: true } }).then((ret) => {
-  //   setState({ ...ret.data });
-  // });
-
   return (
     <div>
       {locationStr === "/login" ? null : (
-        <Header collapsed showLogout={locationStr === "/home"}/>
+        <Header collapsed />
       )}
       <Routes>
         <Route path="login" element={<Login />} />

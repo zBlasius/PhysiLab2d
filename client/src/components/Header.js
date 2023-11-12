@@ -8,10 +8,13 @@ import { Button } from "reactstrap";
 import { signOut, getAuth } from "firebase/auth";
 import "./header.css";
 
-function Header(showLogout) {
+function Header() {
   const navigate = useNavigate();
   const location = useLocation();
+  const locationStr = location.pathname;
   const { state, setState } = useContext(Context);
+
+  const showLogout = locationStr === "/home";
 
   function removeLastPathSegment(url) {
     const segments = url.split("/");
