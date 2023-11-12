@@ -1,5 +1,5 @@
 # Repositório - MathLearning
-Este repositório contém o software **MathLearning**, em conjunto com suas documentações e artigo, este contendo informações sobre a problemática que o software visa resolver, **Aumentar engajamento de alunos nas matérias de física e matemática**. <br><br>
+Este repositório contém o software **MathLearning**, em conjunto com suas documentações e artigo, este contendo informações sobre a problemática que o software visa resolver, **Aumentar engajamento de alunos na matéria de física**. <br><br>
 
 O software foi desenvolvido como **trabalho de conclusão de curso (TCC)** do curso de **Engenharia de Software** do **Centro Universitário Católica de Santa Catarina, Campûs Jaraguá do Sul**.
 
