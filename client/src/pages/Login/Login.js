@@ -56,11 +56,11 @@ const LogIn = () => {
         .then((userCredential) => {
           const user = userCredential.user;
 
-          setState((prev) => ({ ...prev, user: user }));
-          Crud.criarUsuario(state.db, user.uid);
-
-          alert("Sucesso!");
-          navigate("/home");
+          return Crud.criarUsuario(state.db, user.uid).then(() => {
+            setState((prev) => ({ ...prev, user: user }));
+            alert("Sucesso!");
+            navigate("/home");
+          });
         })
         .catch((error) => {
           const errorCode = error.code;

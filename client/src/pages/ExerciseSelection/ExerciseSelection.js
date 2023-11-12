@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import { Context } from "../../utils/Context";
 import "./index.css";
+import { Crud } from "../../utils/Crud";
 
 const ExerciseSelection = ({ subject }) => {
   const navigate = useNavigate();
@@ -15,6 +16,16 @@ const ExerciseSelection = ({ subject }) => {
       setExercises(Object.values(state.exerciseData[subject.key]) ?? []);
     }
   }, [subject, exercises]);
+
+  useEffect(() => {
+    Crud.listarUsuario(state.db, state.user.uid)
+      .then((res) => {
+        console.log("RES: ", res);
+      })
+      .catch((err) => {
+        alert("erro: ", err);
+      });
+  }, []);
 
   function getCurrentButton(exercise) {
     if (exercise.completed) {
