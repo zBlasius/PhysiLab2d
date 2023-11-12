@@ -48,7 +48,6 @@ export const Crud = {
     }
   },
 
-  // TODO: testar
   atualizarUsuario: async (db, idUsuario, newData) => {
     try {
       const q = query(
@@ -64,7 +63,6 @@ export const Crud = {
 
       if (docRef) {
         const res = await updateDoc(docRef, newData);
-        console.log("RESS: ", res);
         return res;
       } else {
         console.error("Usuário não encontrado");

@@ -1,21 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import Question from "./components/Question/Question";
 import Simulation from "./components/Simulation/Simulation";
 import { useNavigate } from "react-router";
+import { Context } from "../../utils/Context";
+import { Crud } from "../../utils/Crud";
 
 const Exercise = ({ exercise }) => {
   const navigate = useNavigate();
 
+  const { state } = useContext(Context);
+
   function onSubmitAnswer(submitedAnswer) {
-    // TODO: Atualizar no banco
-    // if (submitedAnswer == exercise.answer) {
-    //   let auxExerciseData = state.exerciseData;
-    //   auxExerciseData[exercise.groupKey][exercise.key].completed = true;
-    //   setState({ ...state, exerciseData: auxExerciseData });
-    //   // api.post("update", { auxExerciseData }).then((_) => {
-    //   //   navigate("/elementary-physics");
-    //   // });
-    // }
+    if (submitedAnswer == exercise.answer) {
+      Crud.listarUsuario(state.db, state.user.uid).then((userDataRes) => {
+        const exerciseData =
+          state.exerciseData[exercise.groupKey][exercise.key];
+
+        console.log("userDataRes: ", userDataRes);
+
+        const updatedUserData = {
+          ...userDataRes,
+          exercises: { ...userDataRes.exercises, [exerciseData.key]: true },
+        };
+
+        Crud.atualizarUsuario(state.db, state.user.uid, updatedUserData)
+          .then(() => {
+            navigate(`/home/${exerciseData.groupKey}`);
+          })
+          .catch((err) => alert("Erro: ", err));
+      });
+    }
   }
 
   return (
