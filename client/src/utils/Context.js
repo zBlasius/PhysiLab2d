@@ -114,13 +114,16 @@ export const ContextProvider = ({ children }) => {
       message: "erro"
     }
 
+    const navBarShow = false;
+
     return {
       app: app,
       db: db,
       user: null,
       subjectsData: subjectData,
       exerciseData: exercisesData,
-      alert
+      alert,
+      navBarShow
     };
   });
 

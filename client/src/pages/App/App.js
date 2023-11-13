@@ -6,6 +6,7 @@ import Exercise from "../Exercise/Exercise";
 import Login from "../Login/Login";
 import { Context } from "../../utils/Context";
 import Header from "../../components/Header";
+import SingIn from "../Login/SingIn";
 
 import "./reset.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -19,10 +20,10 @@ function App() {
 
   return (
     <div>
-      <Alert message={state.alert.message} show={state.alert.show}/>
-      {locationStr === "/login" ? null : (
-        <Header collapsed />
-      )}
+      <Alert message={state.alert.message} show={state.alert.show} />
+      
+      <Header collapsed />
+      
       <Routes>
         <Route path="login" element={<Login />} />
 
@@ -30,6 +31,13 @@ function App() {
           path="home"
           element={
             state.user ? <SubjectSelection /> : <Navigate to={"/login"} />
+          }
+        />
+
+        <Route
+          path="sing-in"
+          element={
+            <SingIn />
           }
         />
 

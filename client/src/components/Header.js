@@ -25,7 +25,7 @@ function Header() {
   }
 
   return (
-    <Navbar className="bg-dark navbar-brand" style={{ margin: 0 }}>
+    <Navbar className="bg-dark navbar-brand" style={{ margin: 0, top: state.navBarShow ? 0 : -100, transition: "0.5s" }}>
       <Container>
         <Navbar.Brand>
           <div
@@ -53,11 +53,11 @@ function Header() {
                   const auth = getAuth();
                   signOut(auth)
                     .then(() => {
-                      setState((s) => ({ ...s, user: null }));
+                      setState((s) => ({ ...s, user: null, navBarShow:false }));
                       navigate("/login");
                     })
                     .catch((error) => {
-                      alert("Erro ao desconectar o usuário:", error);
+                      setState({...state, alert: {show: true, message: "Erro ao desconectar o usuário"}})
                     });
                 }}
                 color="secondary"

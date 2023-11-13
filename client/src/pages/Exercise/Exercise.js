@@ -8,7 +8,7 @@ import { Crud } from "../../utils/Crud";
 const Exercise = ({ exercise }) => {
   const navigate = useNavigate();
 
-  const { state } = useContext(Context);
+  const { state, setState } = useContext(Context);
 
   function onSubmitAnswer(submitedAnswer) {
     if (submitedAnswer == exercise.answer) {
@@ -27,7 +27,9 @@ const Exercise = ({ exercise }) => {
           .then(() => {
             navigate(`/home/${exerciseData.groupKey}`);
           })
-          .catch((err) => alert("Erro: ", err));
+          .catch((err) => {
+            setState({...state, alert: {show: true, message: "Erro"}})
+          });
       });
     }
   }

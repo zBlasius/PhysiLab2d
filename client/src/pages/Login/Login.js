@@ -47,7 +47,7 @@ const LogIn = () => {
     setState({ ...state, exerciseData: allExercises });
   }
 
-  function login(event, email, password) {
+  function login(event) {
     event.preventDefault();
 
     if (email && password) {
@@ -59,17 +59,15 @@ const LogIn = () => {
           const user = userCredential.user;
 
           await updateContext(user.uid);
-          setState((prev) => ({ ...prev, user: user }));
+          setState((prev) => ({ ...prev, user: user, navBarShow: true }));
           navigate("/home");
         })
         .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          alert(`Erro (${errorCode}): ${errorMessage}`);
+          setState({...state, alert: {show: true, message: "Usuário não encontrado"}})
         })
         .finally(() => setLoading(false));
     } else {
-      alert("Sem senha ou email");
+      setState({...state, alert: {show: true, message: "Sem senha ou email"}})
     }
   }
 
@@ -86,18 +84,17 @@ const LogIn = () => {
 
           return Crud.criarUsuario(state.db, user.uid).then(() => {
             setState((prev) => ({ ...prev, user: user }));
-            alert("Sucesso!");
             navigate("/home");
           });
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          alert(`Erro (${errorCode}): ${errorMessage}`);
+          setState({...state, alert: {show: true, message: `Erro (${errorCode}): ${errorMessage}`}})
         })
         .finally(() => setLoading(false));
     } else {
-      alert("Sem senha ou email");
+      setState({...state, alert: {show: true, message: "Sem senha ou email"}})
     }
   }
 
@@ -170,22 +167,25 @@ const LogIn = () => {
           <div
             style={{
               display: "flex",
-              justifyContent: "space-between",
+              flexDirection:'column',
+              gap:15
             }}
           >
             <Button
               variant="primary"
-              onClick={(e) => setState({...state, alert: {show: true, message: "Usuário não encontrado"}})}
+              onClick={(e) => login(e)}
             >
               Entrar
             </Button>
 
             <Button
-              variant="secondary"
-              onClick={(e) => register(e, email, password)}
+              variant="light"
+              onClick={(e) => setState({...state, alert: {show: true, message: "Usuário não encontrado"}})}
             >
-              Cadastrar
+              <div style={{display:'flex'}}>  <img width="24" height="24" src="/img/g-icon.png"/> <span style={{margin:'auto'}}> Entrar pela Google </span></div>
             </Button>
+
+            <span> Novo por aqui? <a style={{cursor:'pointer'}} onClick={()=> navigate('/sing-in')} class="link-opacity-100">Cadastre-se</a></span>
           </div>
         </Form>
       )}
