@@ -19,9 +19,10 @@ const LogIn = () => {
   const navigate = useNavigate();
 
   async function updateContext(uid) {
-
     const userDataRes = await Crud.listarUsuario(state.db, uid);
-    const exerciseData = Object.values(state.exerciseData["elementary-physics"]);
+    const exerciseData = Object.values(
+      state.exerciseData["elementary-physics"]
+    );
 
     const exerciseDataWithProgress = exerciseData.map((d) => {
       const exerciseProgress = userDataRes.exercises[d.key];
@@ -33,9 +34,18 @@ const LogIn = () => {
       return d;
     });
     let allExercises = state.exerciseData;
-    allExercises["elementary-physics"] = exerciseDataWithProgress;
-    setState({ ...state, exerciseData: allExercises })
 
+    const exerciseDataWithProgressObj = {};
+
+    exerciseDataWithProgress.forEach((ex) => {
+      exerciseDataWithProgressObj[ex.key] = ex;
+    });
+
+    allExercises["elementary-physics"] = exerciseDataWithProgressObj;
+
+    console.log("STATE: ", allExercises);
+
+    setState({ ...state, exerciseData: allExercises });
   }
 
   function login(event, email, password) {
@@ -49,7 +59,7 @@ const LogIn = () => {
         .then(async (userCredential) => {
           const user = userCredential.user;
 
-          await updateContext(user.uid)
+          await updateContext(user.uid);
           setState((prev) => ({ ...prev, user: user }));
           navigate("/home");
         })
