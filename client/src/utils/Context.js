@@ -104,9 +104,15 @@ export const ContextProvider = ({ children }) => {
       appId: "1:987900479339:web:2d7ff476b0ae97d445ee2e",
       measurementId: "G-7KCBKTM6K7",
     };
-    
+
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
+
+    const alert = {
+      show: false,
+      type: "alert",
+      message: "erro"
+    }
 
     return {
       app: app,
@@ -114,6 +120,7 @@ export const ContextProvider = ({ children }) => {
       user: null,
       subjectsData: subjectData,
       exerciseData: exercisesData,
+      alert
     };
   });
 

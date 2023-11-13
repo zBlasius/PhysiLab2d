@@ -9,7 +9,6 @@ import {
 import { Context } from "../../utils/Context";
 import { useNavigate } from "react-router-dom";
 import { Crud } from "../../utils/Crud";
-import helper from "../../utils/helper";
 
 const LogIn = () => {
   const [email, setEmail] = useState("");
@@ -175,7 +174,7 @@ const LogIn = () => {
           >
             <Button
               variant="primary"
-              onClick={(e) => setState({...state, alert: {show: true, message: "Usuário não encontrado"}})}
+              onClick={(e) => {}}
             >
               Entrar
             </Button>

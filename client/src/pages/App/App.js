@@ -9,6 +9,7 @@ import Header from "../../components/Header";
 
 import "./reset.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Alert from "../../components/Alert";
 
 function App() {
   const location = useLocation();
@@ -18,6 +19,7 @@ function App() {
 
   return (
     <div>
+      <Alert message={state.alert.message} show={state.alert.show}/>
       {locationStr === "/login" ? null : (
         <Header collapsed />
       )}
