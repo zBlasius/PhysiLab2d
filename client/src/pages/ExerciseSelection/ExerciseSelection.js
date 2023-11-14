@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import { Context } from "../../utils/Context";
 import "./index.css";
-import { Crud } from "../../utils/Crud";
+import Crud from "../../utils/Crud";
 
 const ExerciseSelection = ({ subject }) => {
   const navigate = useNavigate();

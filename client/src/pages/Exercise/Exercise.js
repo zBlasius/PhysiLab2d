@@ -3,7 +3,7 @@ import Question from "./components/Question/Question";
 import Simulation from "./components/Simulation/Simulation";
 import { useNavigate } from "react-router";
 import { Context } from "../../utils/Context";
-import { Crud } from "../../utils/Crud";
+import Crud from "../../utils/Crud";
 
 const Exercise = ({ exercise }) => {
   const navigate = useNavigate();

@@ -5,11 +5,13 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider
 } from "firebase/auth";
 import { Context } from "../../utils/Context";
 import { useNavigate } from "react-router-dom";
-import { Crud } from "../../utils/Crud";
-import helper from "../../utils/helper";
+import Crud from "../../utils/Crud";
+const provider = new GoogleAuthProvider();
 
 const LogIn = () => {
   const [email, setEmail] = useState("");
@@ -63,40 +65,36 @@ const LogIn = () => {
           navigate("/home");
         })
         .catch((error) => {
-          setState({...state, alert: {show: true, message: "Usuário não encontrado"}})
+          setState({ ...state, alert: { show: true, message: "Usuário não encontrado" } })
         })
         .finally(() => setLoading(false));
     } else {
-      setState({...state, alert: {show: true, message: "Sem senha ou email"}})
+      setState({ ...state, alert: { show: true, message: "Sem senha ou email" } })
     }
   }
 
-  function register(event, email, password) {
+  function googleLogin(event) {
     event.preventDefault();
 
-    if (email && password) {
-      const auth = getAuth();
-      setLoading(true);
+    const auth = getAuth();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const user = result.user
 
-      createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-          const user = userCredential.user;
-
-          return Crud.criarUsuario(state.db, user.uid).then(() => {
-            setState((prev) => ({ ...prev, user: user }));
-            navigate("/home");
-          });
+        return Crud.listarUsuario(state.db, user.uid).then((ret) => {
+          if(!ret) return setState({ ...state, alert: { show: true, message: "Usuário não cadastrado" } })
+          setState((prev) => ({ ...prev, user: user, navBarShow: true }));
+          navigate("/home");
+        }).catch(err => {
+          setState((prev) => ({ ...prev, user: user, navBarShow: true }));
+          console.log('err', err)
         })
-        .catch((error) => {
-          const errorCode = error.code;
-          const errorMessage = error.message;
-          setState({...state, alert: {show: true, message: `Erro (${errorCode}): ${errorMessage}`}})
-        })
-        .finally(() => setLoading(false));
-    } else {
-      setState({...state, alert: {show: true, message: "Sem senha ou email"}})
-    }
+      }).catch((error) => {
+        setState({ ...state, alert: { show: true, message: "Ocorreu um erro" } })
+      });
   }
+
 
   return (
     <Container
@@ -167,8 +165,8 @@ const LogIn = () => {
           <div
             style={{
               display: "flex",
-              flexDirection:'column',
-              gap:15
+              flexDirection: 'column',
+              gap: 15
             }}
           >
             <Button
@@ -180,12 +178,12 @@ const LogIn = () => {
 
             <Button
               variant="light"
-              onClick={(e) => setState({...state, alert: {show: true, message: "Usuário não encontrado"}})}
+              onClick={(e) => googleLogin(e)}
             >
-              <div style={{display:'flex'}}>  <img width="24" height="24" src="/img/g-icon.png"/> <span style={{margin:'auto'}}> Entrar pela Google </span></div>
+              <div style={{ display: 'flex' }}>  <img width="24" height="24" src="/img/g-icon.png" /> <span style={{ margin: 'auto' }}> Entrar pela Google </span></div>
             </Button>
 
-            <span> Novo por aqui? <a style={{cursor:'pointer'}} onClick={()=> navigate('/sing-in')} class="link-opacity-100">Cadastre-se</a></span>
+            <span> Novo por aqui? <a style={{ cursor: 'pointer' }} onClick={() => navigate('/sing-in')} class="link-opacity-100">Cadastre-se</a></span>
           </div>
         </Form>
       )}
