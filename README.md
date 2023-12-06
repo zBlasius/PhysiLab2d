@@ -19,6 +19,7 @@ O [artigo](https://www.overleaf.com/read/khhvsthbhzpg) foi escrito e hospedado n
 
 ### Metodologia de desenvolvimento
 Para gerenciamento do projeto foi utilizado a metódologia Scrum com a ferramenta [Trello](https://trello.com/). <br>
+
 Para versionamento do projeto foi utilizado o git, com este [repositório](https://github.com/zBlasius/math_learnin) sendo hospedado pelo Github. <br>
 
 ## Documentação
@@ -29,7 +30,7 @@ Documentos produzidos durante o projeto.
 [Apresentação do projeto](https://www.canva.com/design/DAFzumN9vCg/mnxlR6VB0Tgsvu-Xw1Re4g/edit?utm_content=DAFzumN9vCg&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton) - Canva. <br>
 [Vídeo demonstrando o software](google.com) - Loom. <br>
 ### Diagrama de caso de uso - [Lucid Chart](https://www.lucidchart.com)
-![Diagrama de caso de uso](https://github.com/zBlasius/math_learning/assets/55204995/74ea6fa3-6457-4c41-b824-175003fbb5f0)
+![Diagrama de caso de uso](https://github.com/zBlasius/PhysiLab2d/assets/55204995/717f53f5-e71b-463b-b3fa-f4471f9b7939)
 ### Wireframes - [Figma](https://www.figma.com)
 Tela de login
 ![Tela de login](https://github.com/zBlasius/math_learning/assets/55204995/eb959ab1-384a-4713-81b1-ad598034cf51)<br><br>
