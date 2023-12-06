@@ -10,7 +10,8 @@ O [artigo](https://www.overleaf.com/read/khhvsthbhzpg) foi escrito e hospedado n
 **Instituição:** Centro Universitário Católica de Santa Catarina, Campûs Jaraguá do Sul. <br>
 **Curso:** Engenharia de Software. <br>
 **Orientadora:** Tathiana Duarte do Amarante. <br>
-**Banca Avaliadora:** Tathiana Duarte do Amarante, Tassiana Kautzmann e Andrei Carniel<br>
+**Banca Avaliadora:** Tathiana Duarte do Amarante, Tassiana Kautzmann e Andrei Carniel. <br>
+**Apresentado dia:** 04/12/2023. <br>
 
 ## Software
 ### Tecnologias usadas
