@@ -2,7 +2,7 @@
 Este repositório contém o software **PhysiLab2d**, em conjunto com suas documentações e artigo, este contendo informações sobre a problemática que o software visa resolver, **Aumentar engajamento de alunos na matéria de física**. <br>
 
 O software foi desenvolvido como **trabalho de conclusão de curso (TCC)** do curso de **Engenharia de Software** do **Centro Universitário Católica de Santa Catarina, Campûs Jaraguá do Sul**.
-<h3> Acesse aqui o app: [math-learning](https://math-learning-5e0f0.web.app/login) <br> </h3>
+<h4> Acesse app: https://math-learning-5e0f0.web.app/login <br> </h4>
 
 ## Artigo
 O [artigo](https://www.overleaf.com/read/khhvsthbhzpg) foi escrito e hospedado na plataforma Overleaf. <br> 
